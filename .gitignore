@@ -1,0 +1,81 @@
+# Original user data and derived per-user/model artifacts remain private.
+Term-project-datasets/
+data/raw/
+data/demo_support.json
+outputs/
+.deps/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+# Deployment/source staging must not publish private audit artifacts or local secrets.
+.env
+.env.*
+!.env.example
+web/evidence/
+web/frontend/dist/
+web/frontend/node_modules/
+*.tsbuildinfo
+Team12_Development_Stage2_Review/
+*.zip
+web/deployment/private-assets/
+# Local presentation state/logs/machine-specific runtime hints are never public.
+web/demo/.state/
+web/demo/logs/
+web/demo/runtime.local.json
+
+# Public-source initial staging policy (merged; Frozen V1 files stay unchanged).
+/datasets/
+/models/
+/artifacts/
+/private/
+/data/*
+!/data/README.md
+/reports/
+/professor_spec.pdf
+/Team12_Proposal_Perfume_Recommendation.docx
+/.chart-data-*/
+*.docx
+*.pptx
+*.pdf
+
+# Model/serialized training artifacts, wherever created.
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.onnx
+*.safetensors
+
+# Dependencies, build output and caches at any depth.
+venv/
+node_modules/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and machine-specific configuration.
+.npmrc
+.pypirc
+*.key
+*.pem
+*.p12
+*.pfx
+*.log
+._*
+
+# Hold from initial public source until separately reviewed/sanitized.
+# These are exclusions only; the original files are not edited.
+/README.md
+/scripts/report_improvements.py
+/scripts/build_deck.mjs
+/scripts/render_figures.mjs
+/web/frontend/qa-mobile.html

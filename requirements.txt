@@ -1,0 +1,2 @@
+# Core models and CLI. Audit uses standard library only.
+numpy==2.3.5

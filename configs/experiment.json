@@ -1,0 +1,28 @@
+{
+  "seed": 12,
+  "k": 10,
+  "relevance": 0.7,
+  "alphas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "mf_grid": [
+    {
+      "factors": 8,
+      "epochs": 80,
+      "learning_rate": 0.025,
+      "regularization": 0.03
+    },
+    {
+      "factors": 12,
+      "epochs": 100,
+      "learning_rate": 0.025,
+      "regularization": 0.05
+    }
+  ],
+  "zero_policy": "exclude_as_analysis_assumption",
+  "usage_authorization": "User confirmed classroom local analysis/training on 2026-10-22; redistribution not authorized",
+  "external_evaluation": "Pending validation-only freeze; user authorized independent evaluation",
+  "zero_semantics": "UNRESOLVED; not proof that zero is missing"
+}

@@ -1,0 +1,151 @@
+{
+  "seed": 12,
+  "k": 10,
+  "relevance": 0.7,
+  "thresholds": [
+    3,
+    4,
+    5
+  ],
+  "profile_modes": [
+    "rating",
+    "liked",
+    "centered"
+  ],
+  "alphas": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "mf_grid": [
+    {
+      "kind": "legacy",
+      "factors": 8,
+      "epochs": 80,
+      "learning_rate": 0.025,
+      "regularization": 0.03
+    },
+    {
+      "kind": "legacy",
+      "factors": 12,
+      "epochs": 100,
+      "learning_rate": 0.025,
+      "regularization": 0.05
+    },
+    {
+      "kind": "legacy",
+      "factors": 4,
+      "epochs": 160,
+      "learning_rate": 0.01,
+      "regularization": 0.01
+    },
+    {
+      "kind": "legacy",
+      "factors": 8,
+      "epochs": 160,
+      "learning_rate": 0.05,
+      "regularization": 0.01
+    },
+    {
+      "kind": "legacy",
+      "factors": 16,
+      "epochs": 160,
+      "learning_rate": 0.025,
+      "regularization": 0.01
+    },
+    {
+      "kind": "legacy",
+      "factors": 8,
+      "epochs": 200,
+      "learning_rate": 0.025,
+      "regularization": 0.1
+    },
+    {
+      "kind": "legacy",
+      "factors": 4,
+      "epochs": 200,
+      "learning_rate": 0.05,
+      "regularization": 0.05
+    },
+    {
+      "kind": "biased",
+      "factors": 4,
+      "epochs": 80,
+      "learning_rate": 0.01,
+      "regularization": 0.01
+    },
+    {
+      "kind": "biased",
+      "factors": 8,
+      "epochs": 80,
+      "learning_rate": 0.025,
+      "regularization": 0.03
+    },
+    {
+      "kind": "biased",
+      "factors": 16,
+      "epochs": 80,
+      "learning_rate": 0.025,
+      "regularization": 0.03
+    },
+    {
+      "kind": "biased",
+      "factors": 8,
+      "epochs": 160,
+      "learning_rate": 0.01,
+      "regularization": 0.03
+    },
+    {
+      "kind": "biased",
+      "factors": 8,
+      "epochs": 160,
+      "learning_rate": 0.05,
+      "regularization": 0.03
+    },
+    {
+      "kind": "biased",
+      "factors": 8,
+      "epochs": 160,
+      "learning_rate": 0.025,
+      "regularization": 0.01
+    },
+    {
+      "kind": "biased",
+      "factors": 8,
+      "epochs": 160,
+      "learning_rate": 0.025,
+      "regularization": 0.1
+    },
+    {
+      "kind": "biased",
+      "factors": 4,
+      "epochs": 200,
+      "learning_rate": 0.025,
+      "regularization": 0.05
+    },
+    {
+      "kind": "biased",
+      "factors": 16,
+      "epochs": 200,
+      "learning_rate": 0.025,
+      "regularization": 0.05
+    }
+  ],
+  "selection": "CF setting chosen by pure MF NDCG, keep original grid0 at each threshold unless strictly improved; then choose content mode/alpha/threshold by hybrid validation NDCG; ties deterministic",
+  "candidate_policy": "Existing common 479-item pool; per-user train exclusions unchanged",
+  "zero_policy": "exclude as analytical assumption; include retained as sensitivity; semantics unresolved",
+  "external_protocol": {
+    "rating_min": 0,
+    "rating_max": 9,
+    "scale_assumption": "ordinal linear rate/9; not semantic equivalence with Atrafshan",
+    "min_history": 3,
+    "support_policy": "hash-sorted matched IDs: first n//2 support, rest held-out; >=1 support factor required",
+    "candidate_policy": "same frozen 479 development candidate IDs, never answer-derived",
+    "relevance": 0.7,
+    "support_seed": 12,
+    "matching": "unchanged unique exact normalized brand/name; no fuzzy expansion",
+    "evaluation_scope": "matched-catalog transfer with existing Fragrantica features; no external feature fitting; N/A full external feature domain shift"
+  }
+}
