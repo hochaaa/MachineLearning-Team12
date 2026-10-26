@@ -74,8 +74,12 @@ htmlcov/
 
 # Hold from initial public source until separately reviewed/sanitized.
 # These are exclusions only; the original files are not edited.
-/README.md
 /scripts/report_improvements.py
 /scripts/build_deck.mjs
 /scripts/render_figures.mjs
 /web/frontend/qa-mobile.html
+
+# Generated editor state and local runtime copies.
+.local/
+.vscode/
+.idea/

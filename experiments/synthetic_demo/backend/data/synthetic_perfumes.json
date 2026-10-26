@@ -1,0 +1,2162 @@
+[
+  {
+    "id": "DEMO-001",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 01",
+    "family": "citrus",
+    "top_notes": [
+      "grapefruit"
+    ],
+    "middle_notes": [
+      "bergamot",
+      "ambrette"
+    ],
+    "base_notes": [
+      "mandarin"
+    ],
+    "notes": [
+      "grapefruit",
+      "bergamot",
+      "ambrette",
+      "mandarin"
+    ],
+    "accords": [
+      "citrus",
+      "musk"
+    ],
+    "description": "Fictional composition 001: an imagined citrus direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-002",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 02",
+    "family": "citrus",
+    "top_notes": [
+      "mandarin"
+    ],
+    "middle_notes": [
+      "grapefruit",
+      "iris"
+    ],
+    "base_notes": [
+      "rose"
+    ],
+    "notes": [
+      "mandarin",
+      "grapefruit",
+      "iris",
+      "rose"
+    ],
+    "accords": [
+      "citrus",
+      "floral"
+    ],
+    "description": "Fictional composition 002: an imagined citrus direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-003",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 03",
+    "family": "citrus",
+    "top_notes": [
+      "bergamot"
+    ],
+    "middle_notes": [
+      "grapefruit",
+      "cocoa"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "bergamot",
+      "grapefruit",
+      "cocoa",
+      "powder"
+    ],
+    "accords": [
+      "citrus",
+      "gourmand"
+    ],
+    "description": "Fictional composition 003: an imagined citrus direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-004",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 04",
+    "family": "citrus",
+    "top_notes": [
+      "grapefruit"
+    ],
+    "middle_notes": [
+      "bergamot",
+      "violet"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "grapefruit",
+      "bergamot",
+      "violet",
+      "caramel"
+    ],
+    "accords": [
+      "citrus",
+      "floral"
+    ],
+    "description": "Fictional composition 004: an imagined citrus direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-005",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 05",
+    "family": "citrus",
+    "top_notes": [
+      "grapefruit"
+    ],
+    "middle_notes": [
+      "lemon",
+      "amber"
+    ],
+    "base_notes": [
+      "iris"
+    ],
+    "notes": [
+      "grapefruit",
+      "lemon",
+      "amber",
+      "iris"
+    ],
+    "accords": [
+      "citrus",
+      "amber"
+    ],
+    "description": "Fictional composition 005: an imagined citrus direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-006",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 06",
+    "family": "citrus",
+    "top_notes": [
+      "grapefruit"
+    ],
+    "middle_notes": [
+      "bergamot",
+      "powder"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "grapefruit",
+      "bergamot",
+      "powder",
+      "caramel"
+    ],
+    "accords": [
+      "citrus",
+      "musk"
+    ],
+    "description": "Fictional composition 006: an imagined citrus direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-007",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 07",
+    "family": "citrus",
+    "top_notes": [
+      "mandarin"
+    ],
+    "middle_notes": [
+      "bergamot",
+      "cocoa"
+    ],
+    "base_notes": [
+      "cinnamon"
+    ],
+    "notes": [
+      "mandarin",
+      "bergamot",
+      "cocoa",
+      "cinnamon"
+    ],
+    "accords": [
+      "citrus",
+      "gourmand"
+    ],
+    "description": "Fictional composition 007: an imagined citrus direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-008",
+    "brand": "Imaginary Atelier 01",
+    "name": "Invented Citrus Study 08",
+    "family": "citrus",
+    "top_notes": [
+      "bergamot"
+    ],
+    "middle_notes": [
+      "lemon",
+      "almond"
+    ],
+    "base_notes": [
+      "fig leaf"
+    ],
+    "notes": [
+      "bergamot",
+      "lemon",
+      "almond",
+      "fig leaf"
+    ],
+    "accords": [
+      "citrus",
+      "gourmand"
+    ],
+    "description": "Fictional composition 008: an imagined citrus direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-009",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 01",
+    "family": "floral",
+    "top_notes": [
+      "jasmine"
+    ],
+    "middle_notes": [
+      "iris",
+      "rain"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "jasmine",
+      "iris",
+      "rain",
+      "caramel"
+    ],
+    "accords": [
+      "floral",
+      "aquatic"
+    ],
+    "description": "Fictional composition 009: an imagined floral direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-010",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 02",
+    "family": "floral",
+    "top_notes": [
+      "rose"
+    ],
+    "middle_notes": [
+      "jasmine",
+      "cypress"
+    ],
+    "base_notes": [
+      "sea breeze"
+    ],
+    "notes": [
+      "rose",
+      "jasmine",
+      "cypress",
+      "sea breeze"
+    ],
+    "accords": [
+      "floral",
+      "woody"
+    ],
+    "description": "Fictional composition 010: an imagined floral direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-011",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 03",
+    "family": "floral",
+    "top_notes": [
+      "iris"
+    ],
+    "middle_notes": [
+      "jasmine",
+      "caramel"
+    ],
+    "base_notes": [
+      "benzoin"
+    ],
+    "notes": [
+      "iris",
+      "jasmine",
+      "caramel",
+      "benzoin"
+    ],
+    "accords": [
+      "floral",
+      "gourmand"
+    ],
+    "description": "Fictional composition 011: an imagined floral direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-012",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 04",
+    "family": "floral",
+    "top_notes": [
+      "violet"
+    ],
+    "middle_notes": [
+      "jasmine",
+      "sandalwood"
+    ],
+    "base_notes": [
+      "sea breeze"
+    ],
+    "notes": [
+      "violet",
+      "jasmine",
+      "sandalwood",
+      "sea breeze"
+    ],
+    "accords": [
+      "floral",
+      "woody"
+    ],
+    "description": "Fictional composition 012: an imagined floral direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-013",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 05",
+    "family": "floral",
+    "top_notes": [
+      "rose"
+    ],
+    "middle_notes": [
+      "violet",
+      "bergamot"
+    ],
+    "base_notes": [
+      "rain"
+    ],
+    "notes": [
+      "rose",
+      "violet",
+      "bergamot",
+      "rain"
+    ],
+    "accords": [
+      "floral",
+      "citrus"
+    ],
+    "description": "Fictional composition 013: an imagined floral direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-014",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 06",
+    "family": "floral",
+    "top_notes": [
+      "jasmine"
+    ],
+    "middle_notes": [
+      "iris",
+      "grapefruit"
+    ],
+    "base_notes": [
+      "fig leaf"
+    ],
+    "notes": [
+      "jasmine",
+      "iris",
+      "grapefruit",
+      "fig leaf"
+    ],
+    "accords": [
+      "floral",
+      "citrus"
+    ],
+    "description": "Fictional composition 014: an imagined floral direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-015",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 07",
+    "family": "floral",
+    "top_notes": [
+      "iris"
+    ],
+    "middle_notes": [
+      "rose",
+      "pepper"
+    ],
+    "base_notes": [
+      "fig leaf"
+    ],
+    "notes": [
+      "iris",
+      "rose",
+      "pepper",
+      "fig leaf"
+    ],
+    "accords": [
+      "floral",
+      "spicy"
+    ],
+    "description": "Fictional composition 015: an imagined floral direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-016",
+    "brand": "Imaginary Atelier 02",
+    "name": "Invented Floral Study 08",
+    "family": "floral",
+    "top_notes": [
+      "jasmine"
+    ],
+    "middle_notes": [
+      "iris",
+      "vetiver"
+    ],
+    "base_notes": [
+      "fig leaf"
+    ],
+    "notes": [
+      "jasmine",
+      "iris",
+      "vetiver",
+      "fig leaf"
+    ],
+    "accords": [
+      "floral",
+      "woody"
+    ],
+    "description": "Fictional composition 016: an imagined floral direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-017",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 01",
+    "family": "woody",
+    "top_notes": [
+      "cypress"
+    ],
+    "middle_notes": [
+      "vetiver",
+      "violet"
+    ],
+    "base_notes": [
+      "cardamom"
+    ],
+    "notes": [
+      "cypress",
+      "vetiver",
+      "violet",
+      "cardamom"
+    ],
+    "accords": [
+      "woody",
+      "floral"
+    ],
+    "description": "Fictional composition 017: an imagined woody direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-018",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 02",
+    "family": "woody",
+    "top_notes": [
+      "vetiver"
+    ],
+    "middle_notes": [
+      "sandalwood",
+      "cinnamon"
+    ],
+    "base_notes": [
+      "rosemary"
+    ],
+    "notes": [
+      "vetiver",
+      "sandalwood",
+      "cinnamon",
+      "rosemary"
+    ],
+    "accords": [
+      "woody",
+      "spicy"
+    ],
+    "description": "Fictional composition 018: an imagined woody direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-019",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 03",
+    "family": "woody",
+    "top_notes": [
+      "cypress"
+    ],
+    "middle_notes": [
+      "vetiver",
+      "violet"
+    ],
+    "base_notes": [
+      "sage"
+    ],
+    "notes": [
+      "cypress",
+      "vetiver",
+      "violet",
+      "sage"
+    ],
+    "accords": [
+      "woody",
+      "floral"
+    ],
+    "description": "Fictional composition 019: an imagined woody direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-020",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 04",
+    "family": "woody",
+    "top_notes": [
+      "cedar"
+    ],
+    "middle_notes": [
+      "cypress",
+      "pepper"
+    ],
+    "base_notes": [
+      "cardamom"
+    ],
+    "notes": [
+      "cedar",
+      "cypress",
+      "pepper",
+      "cardamom"
+    ],
+    "accords": [
+      "woody",
+      "spicy"
+    ],
+    "description": "Fictional composition 020: an imagined woody direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-021",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 05",
+    "family": "woody",
+    "top_notes": [
+      "cypress"
+    ],
+    "middle_notes": [
+      "cedar",
+      "benzoin"
+    ],
+    "base_notes": [
+      "violet"
+    ],
+    "notes": [
+      "cypress",
+      "cedar",
+      "benzoin",
+      "violet"
+    ],
+    "accords": [
+      "woody",
+      "amber"
+    ],
+    "description": "Fictional composition 021: an imagined woody direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-022",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 06",
+    "family": "woody",
+    "top_notes": [
+      "cypress"
+    ],
+    "middle_notes": [
+      "vetiver",
+      "pepper"
+    ],
+    "base_notes": [
+      "jasmine"
+    ],
+    "notes": [
+      "cypress",
+      "vetiver",
+      "pepper",
+      "jasmine"
+    ],
+    "accords": [
+      "woody",
+      "spicy"
+    ],
+    "description": "Fictional composition 022: an imagined woody direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-023",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 07",
+    "family": "woody",
+    "top_notes": [
+      "sandalwood"
+    ],
+    "middle_notes": [
+      "cedar",
+      "labdanum"
+    ],
+    "base_notes": [
+      "green tea"
+    ],
+    "notes": [
+      "sandalwood",
+      "cedar",
+      "labdanum",
+      "green tea"
+    ],
+    "accords": [
+      "woody",
+      "amber"
+    ],
+    "description": "Fictional composition 023: an imagined woody direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-024",
+    "brand": "Imaginary Atelier 03",
+    "name": "Invented Woody Study 08",
+    "family": "woody",
+    "top_notes": [
+      "cypress"
+    ],
+    "middle_notes": [
+      "sandalwood",
+      "soft musk"
+    ],
+    "base_notes": [
+      "ambrette"
+    ],
+    "notes": [
+      "cypress",
+      "sandalwood",
+      "soft musk",
+      "ambrette"
+    ],
+    "accords": [
+      "woody",
+      "musk"
+    ],
+    "description": "Fictional composition 024: an imagined woody direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-025",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 01",
+    "family": "musk",
+    "top_notes": [
+      "ambrette"
+    ],
+    "middle_notes": [
+      "cotton musk",
+      "mandarin"
+    ],
+    "base_notes": [
+      "ginger"
+    ],
+    "notes": [
+      "ambrette",
+      "cotton musk",
+      "mandarin",
+      "ginger"
+    ],
+    "accords": [
+      "musk",
+      "citrus"
+    ],
+    "description": "Fictional composition 025: an imagined musk direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-026",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 02",
+    "family": "musk",
+    "top_notes": [
+      "ambrette"
+    ],
+    "middle_notes": [
+      "cotton musk",
+      "caramel"
+    ],
+    "base_notes": [
+      "cardamom"
+    ],
+    "notes": [
+      "ambrette",
+      "cotton musk",
+      "caramel",
+      "cardamom"
+    ],
+    "accords": [
+      "musk",
+      "gourmand"
+    ],
+    "description": "Fictional composition 026: an imagined musk direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-027",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 03",
+    "family": "musk",
+    "top_notes": [
+      "powder"
+    ],
+    "middle_notes": [
+      "cotton musk",
+      "sage"
+    ],
+    "base_notes": [
+      "benzoin"
+    ],
+    "notes": [
+      "powder",
+      "cotton musk",
+      "sage",
+      "benzoin"
+    ],
+    "accords": [
+      "musk",
+      "aromatic"
+    ],
+    "description": "Fictional composition 027: an imagined musk direction with a aromatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-028",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 04",
+    "family": "musk",
+    "top_notes": [
+      "soft musk"
+    ],
+    "middle_notes": [
+      "powder",
+      "mineral"
+    ],
+    "base_notes": [
+      "rosemary"
+    ],
+    "notes": [
+      "soft musk",
+      "powder",
+      "mineral",
+      "rosemary"
+    ],
+    "accords": [
+      "musk",
+      "aquatic"
+    ],
+    "description": "Fictional composition 028: an imagined musk direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-029",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 05",
+    "family": "musk",
+    "top_notes": [
+      "ambrette"
+    ],
+    "middle_notes": [
+      "cotton musk",
+      "vanilla"
+    ],
+    "base_notes": [
+      "lavender"
+    ],
+    "notes": [
+      "ambrette",
+      "cotton musk",
+      "vanilla",
+      "lavender"
+    ],
+    "accords": [
+      "musk",
+      "gourmand"
+    ],
+    "description": "Fictional composition 029: an imagined musk direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-030",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 06",
+    "family": "musk",
+    "top_notes": [
+      "powder"
+    ],
+    "middle_notes": [
+      "soft musk",
+      "caramel"
+    ],
+    "base_notes": [
+      "jasmine"
+    ],
+    "notes": [
+      "powder",
+      "soft musk",
+      "caramel",
+      "jasmine"
+    ],
+    "accords": [
+      "musk",
+      "gourmand"
+    ],
+    "description": "Fictional composition 030: an imagined musk direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-031",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 07",
+    "family": "musk",
+    "top_notes": [
+      "ambrette"
+    ],
+    "middle_notes": [
+      "soft musk",
+      "violet"
+    ],
+    "base_notes": [
+      "mineral"
+    ],
+    "notes": [
+      "ambrette",
+      "soft musk",
+      "violet",
+      "mineral"
+    ],
+    "accords": [
+      "musk",
+      "floral"
+    ],
+    "description": "Fictional composition 031: an imagined musk direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-032",
+    "brand": "Imaginary Atelier 04",
+    "name": "Invented Musk Study 08",
+    "family": "musk",
+    "top_notes": [
+      "ambrette"
+    ],
+    "middle_notes": [
+      "powder",
+      "vetiver"
+    ],
+    "base_notes": [
+      "bergamot"
+    ],
+    "notes": [
+      "ambrette",
+      "powder",
+      "vetiver",
+      "bergamot"
+    ],
+    "accords": [
+      "musk",
+      "woody"
+    ],
+    "description": "Fictional composition 032: an imagined musk direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-033",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 01",
+    "family": "amber",
+    "top_notes": [
+      "amber"
+    ],
+    "middle_notes": [
+      "benzoin",
+      "caramel"
+    ],
+    "base_notes": [
+      "ambrette"
+    ],
+    "notes": [
+      "amber",
+      "benzoin",
+      "caramel",
+      "ambrette"
+    ],
+    "accords": [
+      "amber",
+      "gourmand"
+    ],
+    "description": "Fictional composition 033: an imagined amber direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-034",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 02",
+    "family": "amber",
+    "top_notes": [
+      "benzoin"
+    ],
+    "middle_notes": [
+      "resin",
+      "pepper"
+    ],
+    "base_notes": [
+      "vetiver"
+    ],
+    "notes": [
+      "benzoin",
+      "resin",
+      "pepper",
+      "vetiver"
+    ],
+    "accords": [
+      "amber",
+      "spicy"
+    ],
+    "description": "Fictional composition 034: an imagined amber direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-035",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 03",
+    "family": "amber",
+    "top_notes": [
+      "benzoin"
+    ],
+    "middle_notes": [
+      "labdanum",
+      "grass"
+    ],
+    "base_notes": [
+      "resin"
+    ],
+    "notes": [
+      "benzoin",
+      "labdanum",
+      "grass",
+      "resin"
+    ],
+    "accords": [
+      "amber",
+      "green"
+    ],
+    "description": "Fictional composition 035: an imagined amber direction with a green contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-036",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 04",
+    "family": "amber",
+    "top_notes": [
+      "benzoin"
+    ],
+    "middle_notes": [
+      "amber",
+      "iris"
+    ],
+    "base_notes": [
+      "jasmine"
+    ],
+    "notes": [
+      "benzoin",
+      "amber",
+      "iris",
+      "jasmine"
+    ],
+    "accords": [
+      "amber",
+      "floral"
+    ],
+    "description": "Fictional composition 036: an imagined amber direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-037",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 05",
+    "family": "amber",
+    "top_notes": [
+      "amber"
+    ],
+    "middle_notes": [
+      "benzoin",
+      "cotton musk"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "amber",
+      "benzoin",
+      "cotton musk",
+      "powder"
+    ],
+    "accords": [
+      "amber",
+      "musk"
+    ],
+    "description": "Fictional composition 037: an imagined amber direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-038",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 06",
+    "family": "amber",
+    "top_notes": [
+      "amber"
+    ],
+    "middle_notes": [
+      "benzoin",
+      "fig leaf"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "amber",
+      "benzoin",
+      "fig leaf",
+      "powder"
+    ],
+    "accords": [
+      "amber",
+      "green"
+    ],
+    "description": "Fictional composition 038: an imagined amber direction with a green contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-039",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 07",
+    "family": "amber",
+    "top_notes": [
+      "resin"
+    ],
+    "middle_notes": [
+      "amber",
+      "rose"
+    ],
+    "base_notes": [
+      "lavender"
+    ],
+    "notes": [
+      "resin",
+      "amber",
+      "rose",
+      "lavender"
+    ],
+    "accords": [
+      "amber",
+      "floral"
+    ],
+    "description": "Fictional composition 039: an imagined amber direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-040",
+    "brand": "Imaginary Atelier 05",
+    "name": "Invented Amber Study 08",
+    "family": "amber",
+    "top_notes": [
+      "resin"
+    ],
+    "middle_notes": [
+      "labdanum",
+      "violet"
+    ],
+    "base_notes": [
+      "soft musk"
+    ],
+    "notes": [
+      "resin",
+      "labdanum",
+      "violet",
+      "soft musk"
+    ],
+    "accords": [
+      "amber",
+      "floral"
+    ],
+    "description": "Fictional composition 040: an imagined amber direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-041",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 01",
+    "family": "aquatic",
+    "top_notes": [
+      "mineral"
+    ],
+    "middle_notes": [
+      "rain",
+      "sandalwood"
+    ],
+    "base_notes": [
+      "mandarin"
+    ],
+    "notes": [
+      "mineral",
+      "rain",
+      "sandalwood",
+      "mandarin"
+    ],
+    "accords": [
+      "aquatic",
+      "woody"
+    ],
+    "description": "Fictional composition 041: an imagined aquatic direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-042",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 02",
+    "family": "aquatic",
+    "top_notes": [
+      "rain"
+    ],
+    "middle_notes": [
+      "mineral",
+      "vanilla"
+    ],
+    "base_notes": [
+      "bergamot"
+    ],
+    "notes": [
+      "rain",
+      "mineral",
+      "vanilla",
+      "bergamot"
+    ],
+    "accords": [
+      "aquatic",
+      "gourmand"
+    ],
+    "description": "Fictional composition 042: an imagined aquatic direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-043",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 03",
+    "family": "aquatic",
+    "top_notes": [
+      "rain"
+    ],
+    "middle_notes": [
+      "mineral",
+      "almond"
+    ],
+    "base_notes": [
+      "benzoin"
+    ],
+    "notes": [
+      "rain",
+      "mineral",
+      "almond",
+      "benzoin"
+    ],
+    "accords": [
+      "aquatic",
+      "gourmand"
+    ],
+    "description": "Fictional composition 043: an imagined aquatic direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-044",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 04",
+    "family": "aquatic",
+    "top_notes": [
+      "sea breeze"
+    ],
+    "middle_notes": [
+      "mineral",
+      "grapefruit"
+    ],
+    "base_notes": [
+      "cotton musk"
+    ],
+    "notes": [
+      "sea breeze",
+      "mineral",
+      "grapefruit",
+      "cotton musk"
+    ],
+    "accords": [
+      "aquatic",
+      "citrus"
+    ],
+    "description": "Fictional composition 044: an imagined aquatic direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-045",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 05",
+    "family": "aquatic",
+    "top_notes": [
+      "rain"
+    ],
+    "middle_notes": [
+      "sea breeze",
+      "cedar"
+    ],
+    "base_notes": [
+      "mineral"
+    ],
+    "notes": [
+      "rain",
+      "sea breeze",
+      "cedar",
+      "mineral"
+    ],
+    "accords": [
+      "aquatic",
+      "woody"
+    ],
+    "description": "Fictional composition 045: an imagined aquatic direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-046",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 06",
+    "family": "aquatic",
+    "top_notes": [
+      "water lily"
+    ],
+    "middle_notes": [
+      "mineral",
+      "pepper"
+    ],
+    "base_notes": [
+      "benzoin"
+    ],
+    "notes": [
+      "water lily",
+      "mineral",
+      "pepper",
+      "benzoin"
+    ],
+    "accords": [
+      "aquatic",
+      "spicy"
+    ],
+    "description": "Fictional composition 046: an imagined aquatic direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-047",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 07",
+    "family": "aquatic",
+    "top_notes": [
+      "mineral"
+    ],
+    "middle_notes": [
+      "rain",
+      "sage"
+    ],
+    "base_notes": [
+      "lemon"
+    ],
+    "notes": [
+      "mineral",
+      "rain",
+      "sage",
+      "lemon"
+    ],
+    "accords": [
+      "aquatic",
+      "aromatic"
+    ],
+    "description": "Fictional composition 047: an imagined aquatic direction with a aromatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-048",
+    "brand": "Imaginary Atelier 06",
+    "name": "Invented Aquatic Study 08",
+    "family": "aquatic",
+    "top_notes": [
+      "rain"
+    ],
+    "middle_notes": [
+      "water lily",
+      "pepper"
+    ],
+    "base_notes": [
+      "lavender"
+    ],
+    "notes": [
+      "rain",
+      "water lily",
+      "pepper",
+      "lavender"
+    ],
+    "accords": [
+      "aquatic",
+      "spicy"
+    ],
+    "description": "Fictional composition 048: an imagined aquatic direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-049",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 01",
+    "family": "green",
+    "top_notes": [
+      "fig leaf"
+    ],
+    "middle_notes": [
+      "green tea",
+      "sandalwood"
+    ],
+    "base_notes": [
+      "labdanum"
+    ],
+    "notes": [
+      "fig leaf",
+      "green tea",
+      "sandalwood",
+      "labdanum"
+    ],
+    "accords": [
+      "green",
+      "woody"
+    ],
+    "description": "Fictional composition 049: an imagined green direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-050",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 02",
+    "family": "green",
+    "top_notes": [
+      "leaf"
+    ],
+    "middle_notes": [
+      "green tea",
+      "sea breeze"
+    ],
+    "base_notes": [
+      "labdanum"
+    ],
+    "notes": [
+      "leaf",
+      "green tea",
+      "sea breeze",
+      "labdanum"
+    ],
+    "accords": [
+      "green",
+      "aquatic"
+    ],
+    "description": "Fictional composition 050: an imagined green direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-051",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 03",
+    "family": "green",
+    "top_notes": [
+      "green tea"
+    ],
+    "middle_notes": [
+      "leaf",
+      "rain"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "green tea",
+      "leaf",
+      "rain",
+      "caramel"
+    ],
+    "accords": [
+      "green",
+      "aquatic"
+    ],
+    "description": "Fictional composition 051: an imagined green direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-052",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 04",
+    "family": "green",
+    "top_notes": [
+      "leaf"
+    ],
+    "middle_notes": [
+      "fig leaf",
+      "almond"
+    ],
+    "base_notes": [
+      "sea breeze"
+    ],
+    "notes": [
+      "leaf",
+      "fig leaf",
+      "almond",
+      "sea breeze"
+    ],
+    "accords": [
+      "green",
+      "gourmand"
+    ],
+    "description": "Fictional composition 052: an imagined green direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-053",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 05",
+    "family": "green",
+    "top_notes": [
+      "green tea"
+    ],
+    "middle_notes": [
+      "leaf",
+      "vetiver"
+    ],
+    "base_notes": [
+      "fig leaf"
+    ],
+    "notes": [
+      "green tea",
+      "leaf",
+      "vetiver",
+      "fig leaf"
+    ],
+    "accords": [
+      "green",
+      "woody"
+    ],
+    "description": "Fictional composition 053: an imagined green direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-054",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 06",
+    "family": "green",
+    "top_notes": [
+      "green tea"
+    ],
+    "middle_notes": [
+      "leaf",
+      "caramel"
+    ],
+    "base_notes": [
+      "ginger"
+    ],
+    "notes": [
+      "green tea",
+      "leaf",
+      "caramel",
+      "ginger"
+    ],
+    "accords": [
+      "green",
+      "gourmand"
+    ],
+    "description": "Fictional composition 054: an imagined green direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-055",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 07",
+    "family": "green",
+    "top_notes": [
+      "green tea"
+    ],
+    "middle_notes": [
+      "leaf",
+      "grapefruit"
+    ],
+    "base_notes": [
+      "mineral"
+    ],
+    "notes": [
+      "green tea",
+      "leaf",
+      "grapefruit",
+      "mineral"
+    ],
+    "accords": [
+      "green",
+      "citrus"
+    ],
+    "description": "Fictional composition 055: an imagined green direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-056",
+    "brand": "Imaginary Atelier 07",
+    "name": "Invented Green Study 08",
+    "family": "green",
+    "top_notes": [
+      "green tea"
+    ],
+    "middle_notes": [
+      "grass",
+      "cotton musk"
+    ],
+    "base_notes": [
+      "leaf"
+    ],
+    "notes": [
+      "green tea",
+      "grass",
+      "cotton musk",
+      "leaf"
+    ],
+    "accords": [
+      "green",
+      "musk"
+    ],
+    "description": "Fictional composition 056: an imagined green direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-057",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 01",
+    "family": "spicy",
+    "top_notes": [
+      "ginger"
+    ],
+    "middle_notes": [
+      "pepper",
+      "rose"
+    ],
+    "base_notes": [
+      "vetiver"
+    ],
+    "notes": [
+      "ginger",
+      "pepper",
+      "rose",
+      "vetiver"
+    ],
+    "accords": [
+      "spicy",
+      "floral"
+    ],
+    "description": "Fictional composition 057: an imagined spicy direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-058",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 02",
+    "family": "spicy",
+    "top_notes": [
+      "pepper"
+    ],
+    "middle_notes": [
+      "cinnamon",
+      "benzoin"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "pepper",
+      "cinnamon",
+      "benzoin",
+      "caramel"
+    ],
+    "accords": [
+      "spicy",
+      "amber"
+    ],
+    "description": "Fictional composition 058: an imagined spicy direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-059",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 03",
+    "family": "spicy",
+    "top_notes": [
+      "ginger"
+    ],
+    "middle_notes": [
+      "pepper",
+      "labdanum"
+    ],
+    "base_notes": [
+      "water lily"
+    ],
+    "notes": [
+      "ginger",
+      "pepper",
+      "labdanum",
+      "water lily"
+    ],
+    "accords": [
+      "spicy",
+      "amber"
+    ],
+    "description": "Fictional composition 059: an imagined spicy direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-060",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 04",
+    "family": "spicy",
+    "top_notes": [
+      "cardamom"
+    ],
+    "middle_notes": [
+      "ginger",
+      "sage"
+    ],
+    "base_notes": [
+      "amber"
+    ],
+    "notes": [
+      "cardamom",
+      "ginger",
+      "sage",
+      "amber"
+    ],
+    "accords": [
+      "spicy",
+      "aromatic"
+    ],
+    "description": "Fictional composition 060: an imagined spicy direction with a aromatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-061",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 05",
+    "family": "spicy",
+    "top_notes": [
+      "cardamom"
+    ],
+    "middle_notes": [
+      "pepper",
+      "ambrette"
+    ],
+    "base_notes": [
+      "almond"
+    ],
+    "notes": [
+      "cardamom",
+      "pepper",
+      "ambrette",
+      "almond"
+    ],
+    "accords": [
+      "spicy",
+      "musk"
+    ],
+    "description": "Fictional composition 061: an imagined spicy direction with a musk contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-062",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 06",
+    "family": "spicy",
+    "top_notes": [
+      "ginger"
+    ],
+    "middle_notes": [
+      "cardamom",
+      "labdanum"
+    ],
+    "base_notes": [
+      "cedar"
+    ],
+    "notes": [
+      "ginger",
+      "cardamom",
+      "labdanum",
+      "cedar"
+    ],
+    "accords": [
+      "spicy",
+      "amber"
+    ],
+    "description": "Fictional composition 062: an imagined spicy direction with a amber contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-063",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 07",
+    "family": "spicy",
+    "top_notes": [
+      "cinnamon"
+    ],
+    "middle_notes": [
+      "cardamom",
+      "leaf"
+    ],
+    "base_notes": [
+      "soft musk"
+    ],
+    "notes": [
+      "cinnamon",
+      "cardamom",
+      "leaf",
+      "soft musk"
+    ],
+    "accords": [
+      "spicy",
+      "green"
+    ],
+    "description": "Fictional composition 063: an imagined spicy direction with a green contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-064",
+    "brand": "Imaginary Atelier 08",
+    "name": "Invented Spicy Study 08",
+    "family": "spicy",
+    "top_notes": [
+      "cinnamon"
+    ],
+    "middle_notes": [
+      "ginger",
+      "fig leaf"
+    ],
+    "base_notes": [
+      "mandarin"
+    ],
+    "notes": [
+      "cinnamon",
+      "ginger",
+      "fig leaf",
+      "mandarin"
+    ],
+    "accords": [
+      "spicy",
+      "green"
+    ],
+    "description": "Fictional composition 064: an imagined spicy direction with a green contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-065",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 01",
+    "family": "gourmand",
+    "top_notes": [
+      "caramel"
+    ],
+    "middle_notes": [
+      "vanilla",
+      "grapefruit"
+    ],
+    "base_notes": [
+      "sea breeze"
+    ],
+    "notes": [
+      "caramel",
+      "vanilla",
+      "grapefruit",
+      "sea breeze"
+    ],
+    "accords": [
+      "gourmand",
+      "citrus"
+    ],
+    "description": "Fictional composition 065: an imagined gourmand direction with a citrus contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-066",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 02",
+    "family": "gourmand",
+    "top_notes": [
+      "almond"
+    ],
+    "middle_notes": [
+      "cocoa",
+      "vetiver"
+    ],
+    "base_notes": [
+      "sea breeze"
+    ],
+    "notes": [
+      "almond",
+      "cocoa",
+      "vetiver",
+      "sea breeze"
+    ],
+    "accords": [
+      "gourmand",
+      "woody"
+    ],
+    "description": "Fictional composition 066: an imagined gourmand direction with a woody contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-067",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 03",
+    "family": "gourmand",
+    "top_notes": [
+      "almond"
+    ],
+    "middle_notes": [
+      "vanilla",
+      "basil"
+    ],
+    "base_notes": [
+      "leaf"
+    ],
+    "notes": [
+      "almond",
+      "vanilla",
+      "basil",
+      "leaf"
+    ],
+    "accords": [
+      "gourmand",
+      "aromatic"
+    ],
+    "description": "Fictional composition 067: an imagined gourmand direction with a aromatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-068",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 04",
+    "family": "gourmand",
+    "top_notes": [
+      "cocoa"
+    ],
+    "middle_notes": [
+      "almond",
+      "grass"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "cocoa",
+      "almond",
+      "grass",
+      "powder"
+    ],
+    "accords": [
+      "gourmand",
+      "green"
+    ],
+    "description": "Fictional composition 068: an imagined gourmand direction with a green contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-069",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 05",
+    "family": "gourmand",
+    "top_notes": [
+      "vanilla"
+    ],
+    "middle_notes": [
+      "almond",
+      "cinnamon"
+    ],
+    "base_notes": [
+      "mineral"
+    ],
+    "notes": [
+      "vanilla",
+      "almond",
+      "cinnamon",
+      "mineral"
+    ],
+    "accords": [
+      "gourmand",
+      "spicy"
+    ],
+    "description": "Fictional composition 069: an imagined gourmand direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-070",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 06",
+    "family": "gourmand",
+    "top_notes": [
+      "almond"
+    ],
+    "middle_notes": [
+      "vanilla",
+      "water lily"
+    ],
+    "base_notes": [
+      "rosemary"
+    ],
+    "notes": [
+      "almond",
+      "vanilla",
+      "water lily",
+      "rosemary"
+    ],
+    "accords": [
+      "gourmand",
+      "aquatic"
+    ],
+    "description": "Fictional composition 070: an imagined gourmand direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-071",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 07",
+    "family": "gourmand",
+    "top_notes": [
+      "cocoa"
+    ],
+    "middle_notes": [
+      "caramel",
+      "rosemary"
+    ],
+    "base_notes": [
+      "jasmine"
+    ],
+    "notes": [
+      "cocoa",
+      "caramel",
+      "rosemary",
+      "jasmine"
+    ],
+    "accords": [
+      "gourmand",
+      "aromatic"
+    ],
+    "description": "Fictional composition 071: an imagined gourmand direction with a aromatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-072",
+    "brand": "Imaginary Atelier 09",
+    "name": "Invented Gourmand Study 08",
+    "family": "gourmand",
+    "top_notes": [
+      "vanilla"
+    ],
+    "middle_notes": [
+      "almond",
+      "water lily"
+    ],
+    "base_notes": [
+      "caramel"
+    ],
+    "notes": [
+      "vanilla",
+      "almond",
+      "water lily",
+      "caramel"
+    ],
+    "accords": [
+      "gourmand",
+      "aquatic"
+    ],
+    "description": "Fictional composition 072: an imagined gourmand direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-073",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 01",
+    "family": "aromatic",
+    "top_notes": [
+      "lavender"
+    ],
+    "middle_notes": [
+      "sage",
+      "vanilla"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "lavender",
+      "sage",
+      "vanilla",
+      "powder"
+    ],
+    "accords": [
+      "aromatic",
+      "gourmand"
+    ],
+    "description": "Fictional composition 073: an imagined aromatic direction with a gourmand contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-074",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 02",
+    "family": "aromatic",
+    "top_notes": [
+      "basil"
+    ],
+    "middle_notes": [
+      "sage",
+      "pepper"
+    ],
+    "base_notes": [
+      "amber"
+    ],
+    "notes": [
+      "basil",
+      "sage",
+      "pepper",
+      "amber"
+    ],
+    "accords": [
+      "aromatic",
+      "spicy"
+    ],
+    "description": "Fictional composition 074: an imagined aromatic direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-075",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 03",
+    "family": "aromatic",
+    "top_notes": [
+      "basil"
+    ],
+    "middle_notes": [
+      "rosemary",
+      "rain"
+    ],
+    "base_notes": [
+      "pepper"
+    ],
+    "notes": [
+      "basil",
+      "rosemary",
+      "rain",
+      "pepper"
+    ],
+    "accords": [
+      "aromatic",
+      "aquatic"
+    ],
+    "description": "Fictional composition 075: an imagined aromatic direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-076",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 04",
+    "family": "aromatic",
+    "top_notes": [
+      "sage"
+    ],
+    "middle_notes": [
+      "basil",
+      "pepper"
+    ],
+    "base_notes": [
+      "almond"
+    ],
+    "notes": [
+      "sage",
+      "basil",
+      "pepper",
+      "almond"
+    ],
+    "accords": [
+      "aromatic",
+      "spicy"
+    ],
+    "description": "Fictional composition 076: an imagined aromatic direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-077",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 05",
+    "family": "aromatic",
+    "top_notes": [
+      "sage"
+    ],
+    "middle_notes": [
+      "lavender",
+      "water lily"
+    ],
+    "base_notes": [
+      "vetiver"
+    ],
+    "notes": [
+      "sage",
+      "lavender",
+      "water lily",
+      "vetiver"
+    ],
+    "accords": [
+      "aromatic",
+      "aquatic"
+    ],
+    "description": "Fictional composition 077: an imagined aromatic direction with a aquatic contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-078",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 06",
+    "family": "aromatic",
+    "top_notes": [
+      "sage"
+    ],
+    "middle_notes": [
+      "lavender",
+      "pepper"
+    ],
+    "base_notes": [
+      "violet"
+    ],
+    "notes": [
+      "sage",
+      "lavender",
+      "pepper",
+      "violet"
+    ],
+    "accords": [
+      "aromatic",
+      "spicy"
+    ],
+    "description": "Fictional composition 078: an imagined aromatic direction with a spicy contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-079",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 07",
+    "family": "aromatic",
+    "top_notes": [
+      "lavender"
+    ],
+    "middle_notes": [
+      "rosemary",
+      "violet"
+    ],
+    "base_notes": [
+      "powder"
+    ],
+    "notes": [
+      "lavender",
+      "rosemary",
+      "violet",
+      "powder"
+    ],
+    "accords": [
+      "aromatic",
+      "floral"
+    ],
+    "description": "Fictional composition 079: an imagined aromatic direction with a floral contrast. Not a real product."
+  },
+  {
+    "id": "DEMO-080",
+    "brand": "Imaginary Atelier 10",
+    "name": "Invented Aromatic Study 08",
+    "family": "aromatic",
+    "top_notes": [
+      "sage"
+    ],
+    "middle_notes": [
+      "rosemary",
+      "amber"
+    ],
+    "base_notes": [
+      "cocoa"
+    ],
+    "notes": [
+      "sage",
+      "rosemary",
+      "amber",
+      "cocoa"
+    ],
+    "accords": [
+      "aromatic",
+      "amber"
+    ],
+    "description": "Fictional composition 080: an imagined aromatic direction with a amber contrast. Not a real product."
+  }
+]
