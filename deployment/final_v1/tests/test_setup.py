@@ -127,6 +127,11 @@ class SetupTests(unittest.TestCase):
             with self.assertRaisesRegex(config.SetupError,'not ready'):manage.start(self.assets)
         self.assertEqual(spawn.call_count,1);stop.assert_called_once()
 
+    def test_live_port_conflict_remains_an_error(self):
+        with patch.object(manage.socket,'socket') as make:
+            make.return_value.__enter__.return_value.bind.side_effect=OSError('already listening')
+            with self.assertRaisesRegex(config.SetupError,'Port 8004 unavailable'):manage.free_ports()
+
     def test_ui_copy_byte_check(self):
         source=self.root/'web/frontend';local=self.root/'local'
         for name in config.UI_FILES:

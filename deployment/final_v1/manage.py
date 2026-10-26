@@ -67,6 +67,9 @@ def free_ports():
     """Check our two loopback ports, never stop another process."""
     for port in (8004,5177):
         with socket.socket() as s:
+            # Match POSIX servers' bind behavior: TIME_WAIT is not a live listener.
+            # Do not use Windows SO_REUSEADDR, which has different sharing semantics.
+            if os.name!='nt':s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
             try:s.bind(('127.0.0.1',port))
             except OSError as exc:raise SetupError(f'Port {port} unavailable. Do not kill unrelated servers.') from exc
 
