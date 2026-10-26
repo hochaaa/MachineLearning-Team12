@@ -1,4 +1,4 @@
-# No execution-policy bypass, elevation, asset download, or shared venv.
+# Local Frozen V1 install/check/start; no policy bypass, elevation or shared venv.
 $ErrorActionPreference = 'Stop'
 Set-Location (Resolve-Path (Join-Path $PSScriptRoot '../..'))
 if (-not (Get-Command py -ErrorAction SilentlyContinue)) {

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Source-only launcher. No chmod needed: invoke with sh.
+# Local Frozen V1 install/check/start launcher. Invoke with sh; no chmod needed.
 set -eu
 cd "$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
 if ! command -v python3.12 >/dev/null 2>&1; then

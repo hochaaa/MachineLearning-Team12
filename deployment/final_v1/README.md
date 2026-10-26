@@ -1,81 +1,76 @@
-# SCENT MATCH — 동일 Frozen V1 실행 구성
+# SCENT MATCH — Frozen V1 local runtime
 
-**소스 설치·연결 구성 완료 / 실제 모델의 추가 추론·공유·교수 시연 HOLD.** 합성 Demo가 아닌 기존 Frozen V1을 실행하는 명시적 진입점이다. 권한 증빙이 없으면 기존 로더를 import하기 전에 종료한다. 기록을 임의로 VERIFIED로 바꾸어 실행하지 않는다.
+기존 Frozen V1을 그대로 로드하는 FastAPI + React 실행 경로다. Content + MF/Ridge fold-in, Hybrid 0.25/0.75, 후보479개, 기존 필터와 UI를 유지한다. 합성 Demo로 대체하지 않는다.
 
-## 바꾸지 않는 것
+**authorization JSON·검토 상태·`--authorization` 옵션은 실행 조건에서 제거했다. 이 변경이 데이터/모델의 사용·재배포 권한 확보를 뜻하지 않으며 허가 기록을 생성하지 않는다.** 이전 권한 조사는 별도 역사 자료로 남는다.
 
-`deployment.standalone_v1.app:create_app`을 그대로 호출한다. 기존 React 소스9개를 byte-for-byte로 신규 `.local/frontend/`에 복사하고 해당 복사본에서 npm 설치/빌드한다. 기존 웹·로더·모델·데이터·후보479·content/MF/fold-in/Hybrid alpha .25·Knowledge 규칙을 수정하지 않는다. 자산이 없을 때 Demo나원자료로자동대체하지 않는다.
+## 새 컴퓨터에서 Clone → Install → Start
 
-- 원본 manifest SHA256: `3bb906bd903085400c81c7172737ec6519660444a8ff87ea6eeb35c8f2049130`
-- 최소자산 manifest pin: `ff9a748e28cfc723aa972af705c07663827e82b1881291cecd2e5f1985ed3caa`
-- 프로젝트기본자산위치: `outputs/step12_runtime/assets/`
-- 자산5개 총604,291bytes. 현재모두HOLD이며설치기가다운로드·복사·압축하지않는다.
-
-## 현재 GitHub와의 관계
-
-Repository `hochaaa/MachineLearning-Team12`, branch `development-v2`, 현재HEAD `195fe635b273813c10b67c60671de5b650ea1cce`다. 이 신규 실행 구성은 **아직 로컬 미추적 파일**이므로 현재 원격Clone만으로 아래 스크립트가 제공되지는 않는다. source검토/사용자의Git반영승인 이후 팀원에게 안내한다. STEP16 demo/는 보존하지만 이 실행 경로에 연결하지 않는다.
-
-## 1. 소스 설치 — 권한 HOLD에서도 가능
-
-Python3.12(실측3.12.0),Node20.20 또는지원Node22.12+,Git/npm이필요하다. 기존가상환경을복사하지않는다. 신규 `.local/venv`만 생성하며라이브러리설치에는네트워크가필요하다. source만설치하며실제모델은읽지않는다.
-
-macOS, 프로젝트 루트:
+Python3.12, Node20.20 또는 지원 Node22.12+, npm, Git이 필요하다. macOS ARM64를 실제 검증 대상으로 삼았으며 Windows는 **NOT TESTED**다.
 
 ```sh
+git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git
+cd MachineLearning-Team12
 sh deployment/final_v1/run-macos.sh install
 sh deployment/final_v1/run-macos.sh check
+sh deployment/final_v1/run-macos.sh start
 ```
 
-Windows PowerShell — **NOT TESTED**:
+start 한 번으로 다음 두 프로세스를 함께 시작한다.
+
+- FastAPI: http://127.0.0.1:8004
+- React: http://127.0.0.1:5177
+
+첫 실행 전 install이 필요하다. install은 새 `.local/venv` 생성, pip lock 설치·check, 기존 React9파일의 동일 복사본 생성, npm ci, TypeScript/Vite build를 수행한다. 다른 PC의 .local/.venv/node_modules를 복사하지 않는다. start는 무결성/의존성/포트 검사 → API ready479 → React 순서로 시작한다. 종료는 start 터미널에서 Ctrl+C, 재시작은 같은 start 명령이다. 타 서버를 종료하지 않는다.
+
+현재 브랜치에는 사용자가 추가한 커밋 `8dca493`의 최소 런타임5개가 기본경로에 있다. 설치기가 새로 원자료를 수집하거나 별도 자산을 다운로드하지 않는다. 파일이 누락·변조되면 명확한 기술 오류로 종료하며 다른 모델로 대체하지 않는다. 원본 CSV·학습 사용자 평점·user mapping·P는 팀원 런타임에 필요 없다. 실제 자산의 이용권리 판단은 소스 실행 여부와 별개다.
+
+## Windows PowerShell — 실제 OS 미검증
 
 ```powershell
+git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git
+cd MachineLearning-Team12
 & .\deployment\final_v1\run-windows.ps1 install
 & .\deployment\final_v1\run-windows.ps1 check
+& .\deployment\final_v1\run-windows.ps1 start
 ```
 
-로컬정책상ps1이막히면실행정책을우회하지말고같은Python진입점을직접사용한다:
+PowerShell 정책상 스크립트 실행이 제한되면 정책을 우회하지 않고 동일 Python 진입점을 직접 사용한다.
 
 ```powershell
 py -3.12 -B deployment/final_v1/manage.py install
 py -3.12 -B deployment/final_v1/manage.py check
+py -3.12 -B deployment/final_v1/manage.py start
 ```
 
-bootstrapPython은3.12여야한다. venv활성화/관리자권한이필요없다. Windows의공식Node설치배치에서는node.exe와npm-cli.js를직접실행해cmd.exe문자열해석을피한다. 다른npm배치나심볼릭링크구성은안내오류로중단할수있으며실제Windows에서검증해야한다. UTF-8 및줄바꿈을유지한다. 새Clone시 `git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git`를사용할수있다(source반영후).
+활성화·관리자 권한은 필요 없다. Windows npm은 공식 Node 배치의 node.exe와 npm-cli.js를 직접 호출한다. 비표준 npm 설치 배치는 안내 오류로 중단할 수 있다. UTF-8과 LF 소스를 유지하고 경로는 프로젝트 위치에서 자동 계산한다. 개인 홈 절대경로를 소스에 넣지 않는다.
 
-`install`은source설치성공만뜻한다. `check`는도구·의존성·원UI복사본·자산SHA·권한을분리해출력한다. 현재기술검사는PASS지만권한HOLD라전체BLOCKED/exit2가정상이다. 자산/코드hash가다르면pin이나원파일을고쳐우회하지않는다. 로컬UI복사본이달라도자동덮어쓰지않고중단한다.
+## 고정 의존성과 무결성
 
-## 2. 권한 확인 이후의 실행 — 지금 실행 금지
+- Python: `web/backend/requirements-lock.txt`의 모든 `==` 버전으로 설치한다.
+- npm: 기존 `web/frontend/package-lock.json`의 전이 의존성까지 `npm ci`로 설치한다. package.json의 범위 표기를 다시 해석하는 `npm install`로 버전을 갱신하지 않는다.
+- 원 React source 9개를 hash 비교한 동일 복사본에서만 실행한다. 원 UI·원 node_modules/dist를 설치기로 변경하지 않는다.
+- 최소 manifest SHA256: `ff9a748e28cfc723aa972af705c07663827e82b1881291cecd2e5f1985ed3caa`.
+- 원 freeze SHA256: `3bb906bd903085400c81c7172737ec6519660444a8ff87ea6eeb35c8f2049130`.
+- 네 payload의 크기/hash와 재사용 원source11개를 검사한다. 기존 로더는 Q dtype/shape/finite와479개 정렬도 추가 확인한다.
 
-권리자증빙을받은후자산/채널/수신자/기간별실제검토기록을비공개로보관한다. `authorization.example.json`은HOLD상태의형식예시일뿐허가서가아니다. 예시파일을복사하고상태만바꾸는것은허용근거가아니다. 현재추가증빙은없다.
+`--assets` 또는 `SCENT_MATCH_STANDALONE_ASSETS`로 자산 위치를 지정할 수 있다. 상대경로는 프로젝트 root 기준이다. .env나 권한 JSON을 읽지 않는다. 옛 SCENT_MATCH_FINAL_AUTHORIZATION/PURPOSE 값도 실행 정책에 영향을 주지 않는다. `check`의 PASS는 **기술 검사 통과**이며 권리 허용 선언이 아니다.
 
-확인된권리근거가생긴뒤담당검토자가모든4payload를포함하는명세·manifestpin·증빙reference·검토자·유효기간·허용행위를기록한다. 추가추론에는local_inference,교수시연에는local_inference와classroom_demo가필요하다. 이기록은워크플로검사이지법률판정/전자서명/OS보안경계가아니다. 팀원전달·GitHub·파일제출·서버호스팅권한은별도이며이레코드로자동생성되지않는다.
+## 기능 확인과 테스트
 
-다음명령은해당권한확보후에만사용한다. 검토기록의실제경로는각사용자가비공개로정한다. 아래는경로형식예시이며그파일을생성하지않았다.
-
-```sh
-sh deployment/final_v1/run-macos.sh check --authorization deployment/final_v1/authorization.local.json
-sh deployment/final_v1/run-macos.sh start --authorization deployment/final_v1/authorization.local.json --purpose local_inference
-# 교수 비공개 시연 권한까지 확인된 뒤에만:
-sh deployment/final_v1/run-macos.sh start --authorization deployment/final_v1/authorization.local.json --purpose classroom_demo
-```
-
-Windows는같은인자를PowerShellwrapper또는 `py -3.12 -B deployment/final_v1/manage.py`에전달한다. 자산위치는 `--assets` 또는 `SCENT_MATCH_STANDALONE_ASSETS`,검토기록은 `--authorization` 또는 `SCENT_MATCH_FINAL_AUTHORIZATION`로지정한다. 상대경로는프로젝트루트를기준으로해석한다. `.env`파일은자동로드하지않으며비밀값을프론트에넣지않는다. 자산전달방법은권한확인전제공하지않고자동다운로드도없다.
-
-성공시새API8004,기존UI동일복사본5177이다. `VITE_API_BASE_URL=http://127.0.0.1:8004`, `WEB_CORS_ORIGINS=http://127.0.0.1:5177`를프로세스환경으로설정한다. 원vite.config.ts의8000 proxy가남아있지만프론트fetch는명시한8004절대주소를사용하므로기존서버와연결하지않는다. 기존8000/5173/STEP16포트를교체하지않는다.
-
-권한·hash·의존성·포트검사후API→health ready479→React순으로시작한다. 준비실패/포트충돌은중단하며타프로세스를kill하지않는다. Ctrl+C는자신이만든자식프로세스만종료한다. macOS는분리한자식processgroup,Windows는자신이시작한PIDtree만정리한다. 실제모델서버동작및이종OS수치동일성은현재미검증이다.
-
-## 3. 테스트
+브라우저에서 Tom Ford를 검색하고 Bitter Peach/Black Orchid/Ébène Fumé를 선택해9/7/2를 입력하는 방식으로 시연할 수 있다. 실제 선택은 현재 검색 결과의 ID를 사용한다. 입력상품은 추천에서 제외되고 네 필터 none/woody/floral/rose는 기존과 동일하다. UI/API는1개 이상,3개 권장이고 API는최대50개다. score는 확률이 아니다.
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3.12 -B -m unittest discover -s deployment/final_v1/tests -v
-sh -n deployment/final_v1/run-macos.sh
+# 실행 중인 실제 서버에 합성 취향 요청; 학습/평가 데이터 사용 없음
+# 프로젝트 루트에서:
+deployment/final_v1/.local/venv/bin/python -B -m deployment.final_v1.tests.live_smoke
 ```
 
-Windows는 `py -3.12 -B -m unittest discover -s deployment/final_v1/tests -v`다. 테스트의가짜Q/JSONbyte와허가record는일시적합성픽스처이며실제자산/권한으로사용할수없다. 신규27테스트는설정·hash·실행차단·연결·자식정리만검사한다. **기존144개동일성은STEP12과거증거**이며이번재실행결과가아니다. 과거허용오차atol1e-12/rtol1e-10,관측점수차이0. 신규권한확인후의동등성검사는기존코드가과거증거파일을다시쓰지않도록새receipt경로를별도설계해야한다. 지금기존verify_equivalence나평가를실행하지않는다.
+Windows의 Python 실행파일은 `deployment/final_v1/.local/venv/Scripts/python.exe`다. live_smoke의 --reference는 별도 로컬의 과거 추론 결과를 비교하는 선택 인자다. 이 reference는 서버의 런타임 의존성이 아니며 개인 평점/정답/모델을 가져오는 파일도 아니다. local output/reference는 Git에 올리지 않는다.
 
-## 4. 발표와정리
+## 보존·한계
 
-`PRESENTATION_AND_CLEANUP.md`에4분시나리오·권한전제·학기말삭제가이드를적었다. 현재교수실제모델시연은HOLD다. 대체발표는설계와저장된기존집계결과/한계설명이며Demo를V1로대체하지않는다. 실행해놓은기존서비스의존재가권리허가를입증하지않는다.
+기존 모델·벡터·알고리즘·alpha·candidate·standalone_v1·React 소스를 변경하지 않았다. 새로운 MF fit/튜닝/Validation·Test 평가를 실행하지 않는다. 소프트웨어 실행 차단 제거와 법적 허가·제3자 공유는 별개이며 어떠한 VERIFIED 권한 기록도 만들지 않는다. 권한 조사는 별도 보고서를 참조한다.
 
-실제추가추론·자산공유·외부배포·원래평가재실행·Git반영은이번에하지않았다. source와합성테스트는공유검토후보,5자산은HOLD,개인평점·mapping·전체모델·secrets·환경·빌드는제외한다. 새`.local/`·evidence/·실제권한기록은새디렉터리ignore다. 원rootignore와STEP16을바꾸지않았다.
+설치에는 패키지 registry 네트워크가 필요하다. 실행은 loopback 전용이며 외부호스팅 구성은 아니다. 포트8004/5177 충돌 시 종료하므로 타 프로세스 소유자를 확인한다. Windows 실제 실행, 발표장 장비·오프라인·다중 브라우저 검증은 별도다. 정리 가이드와 함수 설명은 같은 디렉터리의 문서를 따른다.

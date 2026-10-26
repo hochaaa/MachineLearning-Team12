@@ -1,8 +1,7 @@
-"""Synthetic setup-only fixtures. Never load real catalog/Q or perform inference."""
+"""Setup unit fixtures. Live inference is tested separately without training."""
 import json
 import tempfile
 import unittest
-from datetime import date
 from pathlib import Path
 from unittest.mock import patch, Mock
 from deployment.final_v1 import config, manage, app
@@ -22,13 +21,6 @@ class SetupTests(unittest.TestCase):
     def write_manifest(self):
         self.m=self.assets/'manifest.json';self.m.write_text(json.dumps(self.manifest));self.pin=config.sha256(self.m)
     def inspect(self):return config.inspect_assets(self.assets,self.root,self.pin)
-    def review(self,**edits):
-        # Fake review record belongs ONLY to temporary unit fixtures; no real grant.
-        record={'schema':1,'status':'VERIFIED','asset_manifest_sha256':config.MANIFEST_PIN,
-                'review_reference':'SYNTHETIC UNIT TEST — NOT PERMISSION','reviewed_by':'fictional test reviewer',
-                'evidence_references':['SYNTHETIC TEST ONLY'],'expires_on':'2030-01-01',
-                'covered_payloads':sorted(config.PAYLOADS),'permitted_actions':['local_inference','classroom_demo']}
-        record.update(edits);p=self.root/'fake-review.json';p.write_text(json.dumps(record));return p
     def test_hash_only_five_files(self):
         out=self.inspect();self.assertEqual(len(out['files']),5);self.assertEqual(out['inference_calls'],0)
         self.assertFalse(out['model_loaded']) # Invalid fake Q bytes were never decoded.
@@ -67,43 +59,21 @@ class SetupTests(unittest.TestCase):
     def test_assets_environment(self):
         with patch.dict('os.environ',{'SCENT_MATCH_STANDALONE_ASSETS':'assets'}):
             self.assertEqual(config.assets_path(root=self.root),self.assets)
-    def test_review_path_root_and_environment(self):
-        with patch.dict('os.environ',{'SCENT_MATCH_FINAL_AUTHORIZATION':'review.json'}):
-            self.assertEqual(config.authorization_path(root=self.root),self.root/'review.json')
-            self.assertEqual(config.authorization_path('other.json',self.root),self.root/'other.json')
     def test_cross_platform_interpreter_selection(self):
         self.assertTrue(str(config.python_path(self.root,windows=True)).endswith('venv/Scripts/python.exe'))
         self.assertTrue(str(config.python_path(self.root,windows=False)).endswith('venv/bin/python'))
-    def test_rights_missing(self):
-        with self.assertRaisesRegex(config.SetupError,'HOLD'):config.authorization(None)
-    def test_rights_example_hold(self):
-        with self.assertRaises(config.SetupError):config.authorization(config.HERE/'authorization.example.json')
-    def test_rights_expired_or_scope(self):
-        for edits in [{'expires_on':'2020-01-01'},{'permitted_actions':['local_inference']},{'evidence_references':[]},{'covered_payloads':['catalog.json']},{'status':'HOLD'}]:
-            with self.subTest(edits=edits),self.assertRaises(config.SetupError):
-                config.authorization(self.review(**edits),'classroom_demo',date(2026,10,26))
-    def test_rights_fixture_accepts(self):
-        self.assertEqual(config.authorization(self.review(),'classroom_demo',date(2026,10,26))['purpose'],'classroom_demo')
-    def test_no_import_before_permission(self):
-        with patch.object(app,'authorization',side_effect=config.SetupError('HOLD')),patch.object(app.importlib,'import_module') as load:
-            with self.assertRaises(config.SetupError):app.create_app()
-            load.assert_not_called()
     def test_no_import_before_hash_check(self):
-        with patch.object(app,'authorization'),patch.object(app,'inspect_assets',side_effect=config.SetupError('hash')),patch.object(app.importlib,'import_module') as load:
+        with patch.object(app,'inspect_assets',side_effect=config.SetupError('hash')),patch.object(app.importlib,'import_module') as load:
             with self.assertRaises(config.SetupError):app.create_app()
             load.assert_not_called()
     def test_exact_original_factory_delegation(self):
         sentinel=object();factory=Mock(return_value=sentinel);module=Mock(create_app=factory)
-        with patch.object(app,'authorization'),patch.object(app,'inspect_assets'),patch.object(app.importlib,'import_module',return_value=module) as load,patch.object(app,'assets_path',return_value=self.assets):
+        with patch.object(app,'inspect_assets'),patch.object(app.importlib,'import_module',return_value=module) as load,patch.object(app,'assets_path',return_value=self.assets):
             self.assertIs(app.create_app(),sentinel)
         load.assert_called_once_with('deployment.standalone_v1.app')
         factory.assert_called_once_with(directory=self.assets,expected_manifest_sha256=config.MANIFEST_PIN)
-    def test_start_hold_no_child_processes(self):
-        with patch.object(manage.subprocess,'Popen') as launch:
-            with self.assertRaises(config.SetupError):manage.start(self.assets,None,'local_inference')
-            launch.assert_not_called()
     def test_command_wiring_and_no_demo_fallback(self):
-        backend,frontend,env=manage.plan(self.assets,self.root/'missing-review.json','classroom_demo')
+        backend,frontend,env=manage.plan(self.assets)
         self.assertIn('deployment.final_v1.app:create_app',backend)
         self.assertIn('8004',backend);self.assertIn('5177',frontend)
         self.assertEqual(env['VITE_API_BASE_URL'],'http://127.0.0.1:8004')
@@ -119,11 +89,43 @@ class SetupTests(unittest.TestCase):
         backend=Mock(pid=811001);frontend=Mock(pid=811002)
         for child in (backend,frontend):child.poll.return_value=None
         health=io.BytesIO(b'{"recommendation_ready":true,"candidate_count":479}')
-        with patch.object(manage,'authorization'),patch.object(manage,'inspect_assets'),patch.object(manage,'tools'),patch.object(manage,'dependencies'),patch.object(manage,'check_ui'),patch.object(manage,'free_ports'),patch.object(manage.subprocess,'Popen',side_effect=[backend,frontend]) as spawn,patch('urllib.request.urlopen',return_value=health),patch.object(manage.time,'sleep',side_effect=KeyboardInterrupt),patch.object(manage.os,'killpg') as stop,contextlib.redirect_stdout(io.StringIO()):
-            out=manage.start(self.assets,'fictional-review','local_inference')
+        with patch.object(manage,'inspect_assets'),patch.object(manage,'tools'),patch.object(manage,'dependencies'),patch.object(manage,'check_ui'),patch.object(manage,'free_ports'),patch.object(manage.subprocess,'Popen',side_effect=[backend,frontend]) as spawn,patch('urllib.request.urlopen',return_value=health),patch.object(manage.time,'sleep',side_effect=KeyboardInterrupt),patch.object(manage.os,'killpg') as stop,contextlib.redirect_stdout(io.StringIO()):
+            out=manage.start(self.assets)
         self.assertEqual(out['status'],'STOPPED')
         self.assertEqual(spawn.call_count,2)
         self.assertEqual({c.args[0] for c in stop.call_args_list},{811001,811002})
+
+    def test_authorization_functions_removed(self):
+        self.assertFalse(hasattr(config,'authorization'))
+        self.assertFalse(hasattr(config,'authorization_path'))
+    def test_old_environment_does_not_gate_or_propagate(self):
+        with patch.dict('os.environ',{'SCENT_MATCH_FINAL_AUTHORIZATION':'missing.json','SCENT_MATCH_FINAL_PURPOSE':'HOLD'}):
+            _,_,env=manage.plan(self.assets)
+        self.assertNotIn('SCENT_MATCH_FINAL_AUTHORIZATION',env)
+        self.assertNotIn('SCENT_MATCH_FINAL_PURPOSE',env)
+    def test_check_passes_without_review_json(self):
+        import contextlib,io
+        output=io.StringIO()
+        with patch.object(manage,'tools',return_value={}),patch.object(manage,'dependencies',return_value={'status':'PASS'}),patch.object(manage,'check_ui',return_value={'status':'PASS'}),patch.object(manage,'inspect_assets',return_value={'status':'PASS'}),contextlib.redirect_stdout(output):
+            code=manage.main(['check'])
+        self.assertEqual(code,0);self.assertEqual(json.loads(output.getvalue())['status'],'PASS')
+        self.assertNotIn('rights',json.loads(output.getvalue()))
+    def test_removed_cli_option_rejected(self):
+        import contextlib,io
+        with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit) as exc:
+            manage.main(['start','--authorization','not-used.json'])
+        self.assertEqual(exc.exception.code,2)
+    def test_missing_assets_still_prevent_start(self):
+        with patch.object(manage.subprocess,'Popen') as launch:
+            with self.assertRaises(config.SetupError):manage.start(self.root/'absent')
+        launch.assert_not_called()
+    def test_unready_backend_never_launches_frontend(self):
+        import io
+        backend=Mock(pid=811003);backend.poll.return_value=None
+        health=io.BytesIO(b'{"recommendation_ready":false,"candidate_count":0}')
+        with patch.object(manage,'inspect_assets'),patch.object(manage,'tools'),patch.object(manage,'dependencies'),patch.object(manage,'check_ui'),patch.object(manage,'free_ports'),patch.object(manage.subprocess,'Popen',return_value=backend) as spawn,patch('urllib.request.urlopen',return_value=health),patch.object(manage.os,'killpg') as stop:
+            with self.assertRaisesRegex(config.SetupError,'not ready'):manage.start(self.assets)
+        self.assertEqual(spawn.call_count,1);stop.assert_called_once()
 
     def test_ui_copy_byte_check(self):
         source=self.root/'web/frontend';local=self.root/'local'

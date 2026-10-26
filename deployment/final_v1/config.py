@@ -1,4 +1,4 @@
-"""Stdlib-only configuration, integrity and permission checks; never loads models."""
+"""Stdlib-only configuration and integrity checks; never loads models."""
 import hashlib
 import json
 import os
@@ -6,7 +6,6 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -37,14 +36,6 @@ def assets_path(value=None, root=ROOT):
     return (p if p.is_absolute() else root / p).resolve()
 
 
-def authorization_path(value=None, root=ROOT):
-    """Explicit/env local review path; resolve relative values against project root."""
-    value = value or os.getenv('SCENT_MATCH_FINAL_AUTHORIZATION')
-    if not value:return None
-    p=Path(value).expanduser()
-    return (p if p.is_absolute() else root/p).resolve()
-
-
 def inspect_assets(directory, root=ROOT, expected_pin=MANIFEST_PIN):
     """Read metadata + hash five files and reused source; never parse Q/catalog.
 
@@ -54,7 +45,7 @@ def inspect_assets(directory, root=ROOT, expected_pin=MANIFEST_PIN):
     directory = Path(directory)
     manifest = directory / 'manifest.json'
     if not manifest.is_file() or manifest.is_symlink():
-        raise SetupError('Missing/nonregular manifest.json. Obtain assets only after permission; no automatic download.')
+        raise SetupError('Missing/nonregular manifest.json. Check the local runtime directory; no automatic download.')
     if sha256(manifest) != expected_pin:
         raise SetupError('Manifest SHA256 mismatch. Do not regenerate or bypass the trusted pin.')
     try:
@@ -84,35 +75,6 @@ def inspect_assets(directory, root=ROOT, expected_pin=MANIFEST_PIN):
     return {'status': 'PASS', 'files': sorted(result + [{'name': 'manifest.json', 'bytes': manifest.stat().st_size, 'sha256': expected_pin}], key=lambda x:x['name']),
             'total_bytes': manifest.stat().st_size + sum(r['bytes'] for r in result), 'reused_sources': len(sources),
             'model_loaded': False, 'inference_calls': 0}
-
-
-def authorization(path, purpose='local_inference', today=None):
-    """path: manually reviewed local rights record, NOT a rightsholder grant itself.
-
-    Require documented evidence, unexpired review and all assets/scopes. No flag
-    enables unverified inference. Do not fabricate this file to unblock execution.
-    """
-    if purpose not in ('local_inference', 'classroom_demo'):
-        raise SetupError('Unsupported execution purpose.')
-    if not path or not Path(path).is_file():
-        raise SetupError('HOLD: missing reviewed permission evidence. Do not run real inference or share assets.')
-    try:
-        record = json.loads(Path(path).read_text(encoding='utf-8'))
-        scopes = record.get('permitted_actions', [])
-        valid = (record.get('schema') == 1 and record.get('status') == 'VERIFIED'
-                 and record.get('asset_manifest_sha256') == MANIFEST_PIN
-                 and record.get('review_reference', '').strip()
-                 and record.get('reviewed_by', '').strip()
-                 and isinstance(record.get('evidence_references'),list) and record.get('evidence_references')
-                 and all(isinstance(x,str) and x.strip() for x in record['evidence_references'])
-                 and set(PAYLOADS) <= set(record.get('covered_payloads', []))
-                 and 'local_inference' in scopes and purpose in scopes
-                 and date.fromisoformat(record['expires_on']) >= (today or date.today()))
-    except (ValueError, KeyError, TypeError, AttributeError) as exc:
-        raise SetupError('HOLD: invalid permission review record.') from exc
-    if not valid:
-        raise SetupError('HOLD: permission review is absent/incomplete/expired or excludes this purpose.')
-    return {'status':'VERIFIED_BY_LOCAL_REVIEW','purpose':purpose,'expires_on':record['expires_on']}
 
 
 def npm_argv(npm=None, node=None, windows=None):
