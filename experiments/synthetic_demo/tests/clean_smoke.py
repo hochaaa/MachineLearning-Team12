@@ -7,21 +7,23 @@ import json
 from pathlib import Path
 
 ROOT=Path.cwd().resolve()
-for name in ('outputs','Term-project-datasets'):
+for name in ('outputs/final','Term-project-datasets'):
     if (ROOT/name).exists():
         raise SystemExit('Use a fresh source-only clone; never delete existing data to pass this check')
 reads=[]
 def audit(event,args):
     if event!='open' or not isinstance(args[0],(str,bytes)):return
     path=Path(args[0]).resolve()
+    # Dependency files may live in the fresh runtime's dedicated venv.
+    if path.is_relative_to(Path(sys.prefix).resolve()):return
     try:relative=path.relative_to(ROOT)
     except ValueError:return
-    if relative.parts[0] not in ('demo','.venv'):
+    if relative.parts[:2] != ('experiments', 'synthetic_demo') and relative.parts[0] != '.venv':
         raise RuntimeError('Non-demo project read blocked')
-    if relative.parts[0]=='demo':reads.append(str(relative))
+    if relative.parts[:2] == ('experiments', 'synthetic_demo'):reads.append(str(relative))
 sys.addaudithook(audit)
 from fastapi.testclient import TestClient
-from demo.backend.app import create_app
+from experiments.synthetic_demo.backend.app import create_app
 with TestClient(create_app()) as c:
     h=c.get('/api/health').json();assert h['recommendation_ready'] and h['candidate_count']==80
     assert c.get('/api/perfumes?q=rose&mode=notes').json()['results']

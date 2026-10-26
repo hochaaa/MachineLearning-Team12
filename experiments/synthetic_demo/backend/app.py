@@ -23,7 +23,7 @@ def create_app():
         yield
         app.state.engine = None
     app = FastAPI(title='SCENT MATCH — Synthetic Demo', lifespan=lifespan)
-    # Official middleware API: https://fastapi.tiangolo.com/tutorial/cors/ (2026-10-26); see demo/REFERENCES.md.
+    # Official middleware API: https://fastapi.tiangolo.com/tutorial/cors/ (2026-10-26); see experiments/synthetic_demo/REFERENCES.md.
     app.add_middleware(CORSMiddleware, allow_origins=os.getenv(
         'DEMO_CORS_ORIGINS', 'http://127.0.0.1:5175,http://localhost:5175').split(','),
         allow_credentials=False, allow_methods=['GET', 'POST'], allow_headers=['Content-Type'])

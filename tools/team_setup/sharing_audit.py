@@ -10,7 +10,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     temp=Path(json.loads((OUT/'temp_workspace.json').read_text())['temporary_root']);planned=temp/'planned-source';planned.mkdir()
     tracked=[p.decode() for p in subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).split(b'\0') if p]
-    candidates=set(tracked)|{'TEAM_SETUP_GUIDE.md','RUNTIME_MANIFEST.json'}
+    candidates=set(tracked)|{'docs/archive/TEAM_SETUP_GUIDE.md','RUNTIME_MANIFEST.json'}
     for folder in ['experiments/development_v2','experiments/development_v3','experiments/step9_audit','tools/team_setup']:
         candidates|={str(p.relative_to(ROOT)) for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     forbidden=('Term-project-datasets/','outputs/','web/evidence/','web/deployment/private-assets/')

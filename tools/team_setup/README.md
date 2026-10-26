@@ -1,6 +1,6 @@
 # Team setup 검증 도구 — STEP10
 
-모델·평가 코드를 바꾸지 않고 환경 설치와 합성 입력의 동결 V1 추론만 확인한다. 팀원 실행 문서는 루트 TEAM_SETUP_GUIDE.md, 자산 목록은 RUNTIME_MANIFEST.json이다. 원본/가공 평점·mapping·모델의 별도 팀원 전달 권한은 보류이며 manifest는 실제 자산을 담지 않는다.
+모델·평가 코드를 바꾸지 않고 환경 설치와 합성 입력의 동결 V1 추론만 확인한다. 현재 팀원 실행은 루트 README.md를 따른다. 당시 가이드는 docs/archive/TEAM_SETUP_GUIDE.md, 과거 자산 목록은 RUNTIME_MANIFEST.json이다. 원본/가공 평점·mapping·모델의 별도 팀원 전달 권한은 보류이며 manifest는 실제 자산을 담지 않는다.
 
 ## 도구와 파라미터
 

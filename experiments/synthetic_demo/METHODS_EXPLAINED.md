@@ -33,7 +33,7 @@ Woody=accord:woody, Floral=accord:floral, Rose=note:rose. 단일 required_scent�
 |CORSMiddleware|DEMO_CORS_ORIGINS comma-separated 허용origin, 기본 localhost/127.0.0.1:5175. credentialsFalse, GET/POST,Content-Type만. 환경 설정은 demo전용|
 |HTTPException/JSONResponse|상태코드·사용자 안내 반환. 잘못된 JSON도 검증오류|
 |unittest/TestClient/mock.patch|합성 테스트·lifespan 요청·일부러 내부오류/준비실패 유도. patch는 테스트 객체만 변경|
-|clean_smoke audit(event,args)|새 Clone에서 원프로젝트 출력폴더 부재 검사, sys.addaudithook로 demo/venv 외 프로젝트 read 차단. OS 수준 전프로세스 보안 경계는 아님|
+|clean_smoke audit(event,args)|새 Clone에서 원프로젝트 출력폴더 부재 검사, sys.addaudithook로 experiments/synthetic_demo 및 현재 sys.prefix 의존성 환경 외 프로젝트 read 차단. OS 수준 전프로세스 보안 경계는 아님|
 |http_smoke.run(base,frontend)|자체 loopback API/프론트에 HTTP smoke, 합성 추천·필터·오류 receipt. argparse --base/--frontend만 허용, 외부URL 거절|
 |subprocess/PYTHONHASHSEED test|서로 다른 seed 프로세스의 전체 JSON 응답 비교. 실제 사용자 기록/평가 없음|
 

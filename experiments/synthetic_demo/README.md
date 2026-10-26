@@ -2,7 +2,7 @@
 
 **DEMO MODE — Synthetic Data.** 가상의 향수80개로 TF-IDF·중심화 평점 프로필·cosine 추천을 실제 계산한다. Frozen V1 Hybrid/MF를 실행하지 않으며 기존 성능을 재현하지 않는다. 실제 사용자 평점·개인정보·원본 향수자료·기존 모델·최소 런타임5개를 요구하지 않는다.
 
-현재 STEP16 파일은 **로컬 신규 파일**이다. 아직 commit/push하지 않았으므로 현재 GitHub Clone에는 이 Demo가 없다. 코드 검토 및 별도 Git 반영 승인 이후 팀원 Clone 실행이 가능하다. 저장소는 `https://github.com/hochaaa/MachineLearning-Team12.git`, 브랜치 `development-v2`; 현재 기준 HEAD는 `195fe635b273813c10b67c60671de5b650ea1cce`다.
+선택적 학습 예제다. 실제 Frozen V1 웹사이트는 루트 README 및 deployment/final_v1/을 사용한다. 이 예제의 지표를 실제 모델 성능으로 사용하지 않는다.
 
 ## 구조
 
@@ -12,7 +12,7 @@
 - `backend/schemas.py`, `backend/app.py`: 입력 검증·독립 FastAPI.
 - `frontend/`: 독립 React/TypeScript/Vite UI. 기존 source는 변경하지 않는다.
 - `tests/`: 수식 oracle·오류·결정성·HTTP·Clean Clone 격리 검사.
-- `evidence/`: 로컬 검증 로그/화면, 새 demo/.gitignore로 Git 제외.
+- `evidence/`: 로컬 검증 로그/화면, 새 experiments/synthetic_demo/.gitignore로 Git 제외.
 - `METHODS_EXPLAINED.md`, `REFERENCES.md`, `DATA_PROVENANCE.md`: 수식·API·자료 출처·한계.
 
 ## 설치와 실행 — macOS
@@ -20,22 +20,22 @@
 Python3.12, Node20.19 이상(실측20.20.0), npm, Git이 필요하다. 새 Clone/공유 승인된 소스의 **프로젝트 루트**에서 실행한다. 기존 root .venv를 덮어쓰지 않도록 Demo 전용 가상환경을 사용한다.
 
 ```sh
-python3.12 -m venv demo/.venv
-demo/.venv/bin/python -m pip install -r demo/requirements-lock.txt
-demo/.venv/bin/python -m pip check
-npm --prefix demo/frontend ci --ignore-scripts --no-audit --no-fund
+python3.12 -m venv experiments/synthetic_demo/.venv
+experiments/synthetic_demo/.venv/bin/python -m pip install -r experiments/synthetic_demo/requirements-lock.txt
+experiments/synthetic_demo/.venv/bin/python -m pip check
+npm --prefix experiments/synthetic_demo/frontend ci --ignore-scripts --no-audit --no-fund
 ```
 
 터미널 A:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 demo/.venv/bin/python -B -m uvicorn demo.backend.app:create_app --factory --host 127.0.0.1 --port 8002 --no-access-log
+PYTHONDONTWRITEBYTECODE=1 experiments/synthetic_demo/.venv/bin/python -B -m uvicorn experiments.synthetic_demo.backend.app:create_app --factory --host 127.0.0.1 --port 8002 --no-access-log
 ```
 
 터미널 B:
 
 ```sh
-npm --prefix demo/frontend run dev
+npm --prefix experiments/synthetic_demo/frontend run dev
 ```
 
 브라우저 `http://127.0.0.1:5175/`, API health `http://127.0.0.1:8002/api/health`. health는 mode=demo/data_origin=synthetic/recommendation_ready=true/candidate_count=80이다. model_loaded=false는 정상이며 MF 학습 모델이 없다는 의미다.
@@ -45,26 +45,26 @@ npm --prefix demo/frontend run dev
 Windows 실제 실행은 하지 않았다. 새 프로젝트 루트에서 다음 명령을 사용하도록 설계했다. Python 실행파일을 직접 호출하므로 Activate.ps1·관리자 권한·실행 정책 우회가 필요하지 않다.
 
 ```powershell
-py -3.12 -m venv demo/.venv
-.\demo\.venv\Scripts\python.exe -m pip install -r demo/requirements-lock.txt
-.\demo\.venv\Scripts\python.exe -m pip check
-npm.cmd --prefix demo/frontend ci --ignore-scripts --no-audit --no-fund
+py -3.12 -m venv experiments/synthetic_demo/.venv
+.\experiments\synthetic_demo\.venv\Scripts\python.exe -m pip install -r experiments/synthetic_demo/requirements-lock.txt
+.\experiments\synthetic_demo\.venv\Scripts\python.exe -m pip check
+npm.cmd --prefix experiments/synthetic_demo/frontend ci --ignore-scripts --no-audit --no-fund
 ```
 
 터미널 A:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE = "1"
-.\demo\.venv\Scripts\python.exe -B -m uvicorn demo.backend.app:create_app --factory --host 127.0.0.1 --port 8002 --no-access-log
+.\experiments\synthetic_demo\.venv\Scripts\python.exe -B -m uvicorn experiments.synthetic_demo.backend.app:create_app --factory --host 127.0.0.1 --port 8002 --no-access-log
 ```
 
 터미널 B:
 
 ```powershell
-npm.cmd --prefix demo/frontend run dev
+npm.cmd --prefix experiments/synthetic_demo/frontend run dev
 ```
 
-UTF-8 소스를 유지한다. 줄바꿈 자동 변경을 피하려면 새 Clone 시 `git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git`를 사용한다(단, Demo 반영 이후). 비ASCII 경로·의존성·브라우저는 실제 Windows PC에서 확인해야 한다.
+UTF-8 소스를 유지한다. 줄바꿈 자동 변경을 피하려면 새 Clone 시 `git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git`를 사용한다(현재 브랜치 기준). 비ASCII 경로·의존성·브라우저는 실제 Windows PC에서 확인해야 한다.
 
 ## 조작 및 실제 계산 확인
 
@@ -88,17 +88,17 @@ N=80, typed token은 note/accord 구분, binary TF. `idf(t)=log((N+1)/(df(t)+1))
 서버 없이:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 demo/.venv/bin/python -B -m unittest discover -s demo/tests -v
-npm --prefix demo/frontend run build
+PYTHONDONTWRITEBYTECODE=1 experiments/synthetic_demo/.venv/bin/python -B -m unittest discover -s experiments/synthetic_demo/tests -v
+npm --prefix experiments/synthetic_demo/frontend run build
 ```
 
 서버 실행 후 HTTP 통합:
 
 ```sh
-demo/.venv/bin/python -B -m demo.tests.http_smoke
+experiments/synthetic_demo/.venv/bin/python -B -m experiments.synthetic_demo.tests.http_smoke
 ```
 
-Windows는 Python 명령을 `.\demo\.venv\Scripts\python.exe -B`로 치환하고 환경변수는 위 PowerShell 방식으로 설정한다. 새 source-only Clone에서만 `python -B -m demo.tests.clean_smoke`를 실행한다. 이 검사는 outputs/원자료 폴더가 있으면 거절한다. **통과하려고 기존 폴더를 삭제하지 말고 새 임시 Clone을 사용한다.**
+Windows는 Python 명령을 `.\experiments\synthetic_demo\.venv\Scripts\python.exe -B`로 치환하고 환경변수는 위 PowerShell 방식으로 설정한다. 새 source-only Clone에서만 `python -B -m experiments.synthetic_demo.tests.clean_smoke`를 실행한다. 이 검사는 outputs/final 또는 원자료 폴더가 있으면 거절한다. **통과하려고 기존 폴더를 삭제하지 말고 새 임시 Clone을 사용한다.**
 
 실제 결과: macOS ARM64/Python3.12.0 새 venv의29테스트 PASS, Vite build PASS, 원본 자료 없는 GitHub Clone+Demo 로컬 복사에서29테스트/격리/HTTP/브라우저 PASS. Windows NOT TESTED. 자세한 현재 증거는 `reports/STEP16_DEMO_VALIDATION.md`다.
 

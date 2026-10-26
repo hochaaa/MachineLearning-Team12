@@ -6,10 +6,10 @@ from pathlib import Path
 from collections import Counter
 from unittest.mock import patch
 from fastapi.testclient import TestClient
-from demo.backend.generate_data import generate
-from demo.backend.recommender import Recommender, DATA, tokens
-from demo.backend.schemas import Rating
-from demo.backend.app import create_app
+from experiments.synthetic_demo.backend.generate_data import generate
+from experiments.synthetic_demo.backend.recommender import Recommender, DATA, tokens
+from experiments.synthetic_demo.backend.schemas import Rating
+from experiments.synthetic_demo.backend.app import create_app
 
 
 def ratings(values=(9, 7, 2)):
@@ -56,7 +56,7 @@ class AlgorithmTests(unittest.TestCase):
 
     def test_cross_process_hash_seed_reproducibility(self):
         import subprocess, os, sys
-        code = "from demo.backend.recommender import Recommender; from demo.backend.schemas import Rating; import json; print(json.dumps(Recommender().recommend([Rating(perfume_id='DEMO-001',rating=9),Rating(perfume_id='DEMO-014',rating=7),Rating(perfume_id='DEMO-038',rating=2)]),sort_keys=True))"
+        code = "from experiments.synthetic_demo.backend.recommender import Recommender; from experiments.synthetic_demo.backend.schemas import Rating; import json; print(json.dumps(Recommender().recommend([Rating(perfume_id='DEMO-001',rating=9),Rating(perfume_id='DEMO-014',rating=7),Rating(perfume_id='DEMO-038',rating=2)]),sort_keys=True))"
         outputs=[subprocess.check_output([sys.executable,'-B','-c',code],env={**os.environ,'PYTHONHASHSEED':seed},text=True) for seed in ('1','29')]
         self.assertEqual(outputs[0], outputs[1])
 
