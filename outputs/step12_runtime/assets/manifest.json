@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "source_freeze_sha256": "3bb906bd903085400c81c7172737ec6519660444a8ff87ea6eeb35c8f2049130",
+  "sharing": "UNVERIFIED/HOLD: local verification only",
+  "files": [
+    {
+      "path": "runtime.json",
+      "bytes": 73923,
+      "sha256": "3528fa0be4d167410aa2a72d27f98da0d4c9a323a81fa7627b3dc7e9adf00af7"
+    },
+    {
+      "path": "item_factors.npy",
+      "bytes": 15456,
+      "sha256": "656bfeb5e01bf015ef932bc00030236c00c544ca5a83c2dda45686e0617ec31e"
+    },
+    {
+      "path": "content.json",
+      "bytes": 325860,
+      "sha256": "c8e90bfcc8c9ee0c3bfdc4e80c8a348c7131c4cfc0bc1bdb69f3e7cd561ef213"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 186990,
+      "sha256": "62ad8fbfdb0dc5c1280901591e1a72385b7e2c8a33363ed709568931caa925c7"
+    }
+  ],
+  "source_code_sha256": {
+    "src/perfume/models.py": "f63508a81cab5116acc81c3bea6df643759e39a1789935dd592da3ff174545ee",
+    "src/perfume/improvements.py": "45938fde3ab600077598360b636002fb3251cafdc04c37f8e3c0b7cf61e59308",
+    "src/perfume/data.py": "0f79e07f64ee42bfffa8276ad02b545d08967c10d7be71653799aa9e67eb9386",
+    "src/perfume/frozen.py": "ac0c00c7fc3cfb13968cf2e2f66d63a486c2f3297378523ec79c9278d394b843",
+    "web/backend/adapter.py": "d6f7d22b20dae567d5490888e920c4b4a3dc999541cf50271298060c751c3b9d",
+    "web/backend/app.py": "0257ab8ef0311ce89c6968f1887a84e42051778f3fc3ed98d3a9d323cf1f723b",
+    "web/backend/advanced_search.py": "1d9276b604075b6feb42c987324695aa3c1aae1bd2232552a75850a0cca154c4",
+    "web/backend/search.py": "5948b98c4b590e7b16ce885a8e053adffd14ea3fe4b45eb917b98de48c006ea7",
+    "deployment/standalone_v1/runtime_config.py": "9a9cd147dc3421517d7c12c16e7c4bda063c6bfa38cc7fe0cdc07e69534e32ee",
+    "deployment/standalone_v1/runtime_loader.py": "ba94631ab593675eaa51ee81cd4186c1a57d4d90ccdf72d1e57b43016dd956d3",
+    "deployment/standalone_v1/app.py": "d80be8457df155335e7e5b52a8fa723d78b7c61f5018cbf8d064c11e72e47439"
+  },
+  "projection": "479 item factors/content/catalog; no user records/mapping/P; aggregates still potentially sensitive"
+}
