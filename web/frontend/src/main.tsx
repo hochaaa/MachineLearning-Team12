@@ -28,6 +28,7 @@ function App() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   const [searchHint, setSearchHint] = useState('')
   const [hits, setHits] = useState<Perfume[]>([])
+  const [discoveryVersion, setDiscoveryVersion] = useState(0)
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState('')
   const [scent, setScent] = useState<Scent>('none')
@@ -40,16 +41,15 @@ function App() {
   useEffect(() => {request<{recommendation_ready: boolean}>('/api/health').then(h => setReady(h.recommendation_ready)).catch(() => setReady(false))}, [])
   useEffect(() => {
     const controller = new AbortController()
-    if (!query.trim()) {setHits([]); setSuggestions([]); setSearchHint(''); setSearching(false); setSearchError(''); return () => controller.abort()}
     setSearching(true); setSearchError(''); setHits([]); setSuggestions([]); setSearchHint('')
     const timer = setTimeout(() => {
-      request<{results: Perfume[]; suggestions: Suggestion[]; hint?: string}>('/api/perfumes?mode=' + searchMode + '&q=' + encodeURIComponent(query.trim()), {signal: controller.signal})
+      request<{results: Perfume[]; suggestions?: Suggestion[]; hint?: string}>(query.trim() ? '/api/perfumes?mode=' + searchMode + '&q=' + encodeURIComponent(query.trim()) : '/api/perfumes/discover', {signal: controller.signal})
         .then(data => {if (!controller.signal.aborted) {setHits(data.results); setSuggestions(data.suggestions ?? []); setSearchHint(data.hint ?? '')}})
         .catch(() => {if (!controller.signal.aborted) setSearchError('검색 서버에 연결할 수 없습니다. FastAPI 실행 상태를 확인해 주세요.')})
         .finally(() => {if (!controller.signal.aborted) setSearching(false)})
-    }, 220)
+    }, query.trim() ? 220 : 0)
     return () => {clearTimeout(timer); controller.abort()}
-  }, [query, searchMode])
+  }, [query, searchMode, discoveryVersion])
   function changed() {setStale(true); setError('')}
   async function recommend() {
     setBusy(true); setError('')
@@ -75,8 +75,9 @@ function App() {
           <p className="micro-copy">동결 모델과 호환되는 479개 향수 · 최대 10개 검색 결과{searchMode === 'notes' && <><br/>노트·어코드 검색은 아래 추천 향 조건과 별개입니다.</>}</p>
           <div className="search-results" aria-live="polite" aria-busy={searching}>
             {searching && <p className="empty-small">향을 찾고 있습니다…</p>}
-            {searchError && <p role="alert" className="error">{searchError}</p>}
-            {!query.trim() && <div className="search-hint"><span>↗</span><p>기억에 남는 향수를 찾아보세요.</p><small>브랜드나 향수명의 일부만 입력해도 됩니다.</small></div>}
+            {searchError && <p role="alert" className="error">{searchError} <button type="button" onClick={() => setDiscoveryVersion(v => v + 1)}>다시 시도</button></p>}
+            {!query.trim() && <div className="discovery-heading"><div><p>이런 향수는 어떠세요?</p><small>다양한 브랜드와 향을 무작위로 보여드려요. 사용해 본 향수만 추가해 평점을 남겨주세요.</small></div><button type="button" disabled={searching || busy} onClick={() => setDiscoveryVersion(v => v + 1)}>다른 향수 보기 ↻</button></div>}
+            {!query.trim() && !searching && !searchError && hits.length === 0 && <p className="empty-small">표시할 향수가 없습니다. 다시 시도해 주세요.</p>}
             {!!query.trim() && !searching && !searchError && hits.length === 0 && suggestions.length === 0 && !searchHint && <p className="empty-small">{searchMode === 'notes' ? '검색 결과가 없습니다. 노트나 어코드 이름을 다시 확인해주세요.' : '검색 결과가 없습니다. 브랜드명이나 향수 이름을 다시 확인해주세요.'}</p>}
             {searchHint && !searching && <p className="empty-small">{searchHint}</p>}
             {suggestions.length > 0 && !searching && <div className="suggestions"><p>‘{query}’와 일치하는 {searchMode === 'notes' ? '노트·어코드' : '향수'}가 없습니다. 혹시 다음 검색어를 찾으셨나요?</p>{suggestions.map(s => <button type="button" key={s.query} disabled={busy} onClick={() => setQuery(s.query)}>{display(s.label)} <span>↗</span></button>)}</div>}

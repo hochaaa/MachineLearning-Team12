@@ -4,3 +4,11 @@
 
 /* STEP3-2: compact search controls only; existing editorial layout stays intact. */
 .search-mode{display:flex;gap:6px;margin-bottom:22px}.search-mode button{border:1px solid #cdd3c2;background:transparent;padding:7px 13px;font-size:11px;color:#7b856e}.search-mode button[aria-pressed="true"]{background:#e5e9dc;border-color:#859273;color:#3d4b34}.suggestions{padding:20px 0}.suggestions>p{font-size:11px;color:#7c856f;margin-bottom:12px}.suggestions button{background:#edf0e5;border:1px solid #d1d8c6;padding:7px 12px;margin:0 8px 8px 0;font-size:12px;text-transform:capitalize}.suggestions button:hover{background:#e1e7d6}.suggestions button span{padding-left:12px}.search-hit p.matched-meta{font-size:10px;color:#566d44;margin-top:5px;overflow-wrap:anywhere}
+
+/* Catalog discovery shares existing search-hit cards and rating controls. */
+.discovery-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
+.discovery-heading p { margin: 0 0 8px; }
+.discovery-heading small { color: var(--muted, #686b63); line-height: 1.7; }
+.discovery-heading button { flex-shrink: 0; font: inherit; background: transparent; border: 1px solid #c6c7bc; padding: 9px 12px; cursor: pointer; }
+.discovery-heading button:disabled { opacity: .5; cursor: default; }
+@media (max-width: 600px) { .discovery-heading { align-items: flex-start; flex-direction: column; } }
