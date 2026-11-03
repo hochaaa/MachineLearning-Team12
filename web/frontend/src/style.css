@@ -150,7 +150,7 @@ em { color: var(--olive); }
 .result-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .result-card { display: grid; grid-row: span 5; grid-template-rows: subgrid; gap: 12px; background: #faf9f4; border: 1px solid var(--line); padding: 16px; }
 .result-card h3 { font: 23px/1.2 Georgia, serif; text-transform: capitalize; overflow-wrap: anywhere; margin-top: 5px; }
-.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tags { display: flex; flex-wrap: wrap; align-content: start; align-items: start; gap: 5px; }
 .tags span { border: 1px solid var(--line); padding: 2px 6px; font-size: 11px; color: var(--muted); }
 .card-accent { font: italic 23px Georgia, serif; color: var(--olive); overflow-wrap: anywhere; }
 .card-score { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 5px; font-size: 12px; }
