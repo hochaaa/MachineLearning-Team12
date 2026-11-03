@@ -4,7 +4,7 @@ import './style.css'
 
 type Perfume = { id: string; name: string; brand: string; accords: string[]; notes: string[]; matched_notes?: string[]; matched_accords?: string[] }
 type Selection = Perfume & { rating: number }
-type Result = Perfume & { rank: number; score: number }
+type Result = Perfume & { rank: number; score: number; shared_tokens: string[] }
 type Suggestion = { query: string; label: string; similarity: number | null }
 type SearchMode = 'name' | 'notes'
 type Scent = 'none' | 'woody' | 'floral' | 'rose' | 'citrus' | 'amber' | 'vanilla'
@@ -361,7 +361,14 @@ function App() {
                   {results.map(r => <article className="result-card" key={r.id}>
                     <div className="card-identity"><p className="brand">{display(r.brand)}</p><h3>{display(r.name)}</h3></div>
                     <div className="tags">{r.accords.slice(0, 3).map(accord => <span key={accord}>{accord}</span>)}</div>
-                    {r.accords[0] && <p className="card-accent">{r.accords[0]}</p>}
+                    <p className="card-accent">{r.accords[0]}</p>
+                    <div className="shared-notes">
+                      {r.shared_tokens?.some(token => token.startsWith('note:')) && (
+                        <p><strong>Shared notes</strong> · {r.shared_tokens
+                          .filter(token => token.startsWith('note:')).slice(0, 2)
+                          .map(token => display(token.slice(5))).join(', ')}</p>
+                      )}
+                    </div>
                     <div className="card-score">
                       <span>Match score</span>
                       <strong>{matchScore(r.score)}<small> / 10</small></strong>
@@ -370,7 +377,8 @@ function App() {
                 </div>
               )}
               {saveError && <p className="error" role="alert">{saveError}</p>}
-              <div className="recommend-action">
+              <div className="recommend-action results-footer">
+                {results.length > 0 && <p>Match score (1–10) shows how well each perfume fits your ratings.<br />It is a ranking score, not a predicted rating.</p>}
                 <button type="button" className="primary-button secondary-button" onClick={() => setModal('scent')}>Change scent family</button>
               </div>
             </>}
