@@ -15,4 +15,7 @@ def create_app():
         raise SetupError('Run the server from the project root.')
     factory = importlib.import_module('deployment.standalone_v1.app').create_app
     from web.backend.discovery import add_discovery_route
-    return add_discovery_route(factory(directory=assets, expected_manifest_sha256=MANIFEST_PIN))
+    from .scent_options import extend_scent_options
+
+    app = factory(directory=assets, expected_manifest_sha256=MANIFEST_PIN)
+    return add_discovery_route(extend_scent_options(app))
