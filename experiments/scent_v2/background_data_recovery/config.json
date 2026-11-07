@@ -1,0 +1,15 @@
+{
+  "mf":{"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+  "model_A":{"signal":"none","mode":"full","lambda":0.0},
+  "model_B":{"signal":"max","mode":"top50","lambda":0.2},
+  "training":"Original V25 background255 + unchanged V26 fold developer40; reserved25 labels never decoded",
+  "content":"Same TF-IDF formula, fit documents from combined training items only; vocabulary/IDF and popularity reflect expanded training set, no eval ratings used",
+  "evaluation":"Same developer50/Support5/heldout/candidate479/relevance.7, mean positive-user fold NDCG then Recall/HitRate",
+  "max_actual_MF_fits":5,
+  "selection":"B only if mean NDCG strictly exceeds A by1e-12; Recall and HitRate secondary; ties retain A. No final25 assessment or tuning",
+  "recall_k":[5,20,50,100],
+  "bootstrap_seed":12,
+  "bootstrap_draws":20000,
+  "artifact":"Selected policy plus all5 trained fold item states in one NPZ; default_fold1 fixed BEFORE results, not best-fold selection; no ensemble, no extra all305-user refit",
+  "generalization":"Repeated developer CV, not independent final evidence; historical40-user numbers are training-scope reference only"
+}

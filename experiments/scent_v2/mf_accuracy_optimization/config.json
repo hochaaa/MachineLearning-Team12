@@ -1,0 +1,18 @@
+{
+ "seed":12,"k":5,"relevance":0.7,"support":5,
+ "alphas":[0.0,0.05,0.10,0.15,0.20,0.25],
+ "mf_grid":[
+  {"factors":4,"regularization":0.01,"learning_rate":0.01,"epochs":160,"seed":12},
+  {"factors":4,"regularization":0.005,"learning_rate":0.01,"epochs":160,"seed":12},
+  {"factors":4,"regularization":0.02,"learning_rate":0.01,"epochs":160,"seed":12},
+  {"factors":8,"regularization":0.01,"learning_rate":0.01,"epochs":160,"seed":12},
+  {"factors":16,"regularization":0.01,"learning_rate":0.01,"epochs":160,"seed":12}
+ ],
+ "split":"Exactly V24 original Train identity hash partition/support. Reserve first ceil(eligible/3) by12:v224:role:user. Discard their opaque rating tokens before numeric decoding. Other eligible users are development; remaining users train.",
+ "normalization":"NONE. Existing cosine/clipped MF and existing component fallback. alpha0 is MF with unchanged missing-component fallback, not strict pure-MF exclusion.",
+ "promising_gate":"Baseline MF gets all6 alphas. Other MF configs first evaluate0 and0.25; only if either developer NDCG >= fixed baseline Hybrid NDCG evaluate interior4 alphas. No refits per alpha.",
+ "selection":"Highest development NDCG. Ties within1e-12 prefer original MF config, then alpha closest0.25, then fewer factors, then regularization closest0.01, then earlier config index.",
+ "MF_fit_budget":5,"Content_fit_budget":1,
+ "baseline_expected_ndcg":0.052812448558299224,
+ "independent_final":"NOT_EVALUATED. V24 final files/results/models/labels forbidden; no independent new holdout available. No final-based retraining or selection."
+}

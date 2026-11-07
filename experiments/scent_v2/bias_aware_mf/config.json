@@ -1,0 +1,15 @@
+{
+ "seed":12,"folds":5,"k":5,"support":5,"relevance":0.7,
+ "base_mf":{"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+ "initial_bias_regularization":0.01,"bias_shrinkage":[0.1,1.0,10.0],"alphas":[0.0,0.10,0.25],
+ "training_objective":"Per-observation squared residual + factor_L2*(||p||2+||q||2) + bias_L2*(bu2+bi2); fixed train mean. SGD, simultaneous copied p/q updates, Gaussian residual initialization0,.05.",
+ "fold_in":"A=[Q_known,1]; z=rating_known-train_mean-item_bias_known. solve(A.T A+n*diag(factor_L2,...,bias_L2*shrink)) theta=A.T z. Item Q/bias/mean frozen. Missing support/item=>original component fallback.",
+ "score":"Unchanged clip[0,1] then original alpha C+(1-alpha) MF and missing-component fallback. No fitted calibration; alpha0 keeps fallback.",
+ "additional_gate":"Only if initial4factor best mean NDCG strictly exceeds original Hybrid, train4factor bias_L2=.001,.1; then one8factor model with best4factor bias_L2. Same9 support-shrink/alpha policies per model. Otherwise stop new fits.",
+ "max_actual_data_MF_fits":26,
+ "selection":"Bias candidate must strictly beat original Hybrid mean NDCG. Among eligible rank by mean NDCG, Recall, HitRate; ties prefer fewer factors, default bias regularization/shrinkage and original alpha. Else keep original Hybrid.",
+ "cv":"Exact V26 50 developers,40train/10eval, same Support/held-out,479. Reserved25 and background255 labels not decoded; V24 outputs forbidden.",
+ "final_artifact":"One refit of selected policy on all50 developers after CV selection, no evaluation on those same training users.",
+ "baseline_expected_ndcg":0.040963057685131546,
+ "independent_final":"NOT_EVALUATED; repeated developer CV is not independent generalization validation."
+}

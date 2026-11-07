@@ -1,3 +1,5 @@
+> 이 문서는 개발 당시의 이력입니다. 현재 프로젝트 소개와 발표 결과는 README.md 및 docs/results/를 참고하세요.
+
 # REQUIREMENTS_TRACEABILITY.md
 
 Legend: **R** explicitly required; **O** optional/encouraged; **Q** unresolved interpretation; **I** recommended implementation. Initial status = OPEN. Update status only with actual file paths and verified evidence.

@@ -1,0 +1,13 @@
+{
+ "mf":{"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+ "policies":["baseline","structured","train_cdf"],
+ "structured":{"channels":["Top","Middle","Base","accords"],"channel_weights":[0.25,0.25,0.25,0.25],"fit":"Multi-hot phrase vocabulary per channel on TRAIN items only","similarity":"Max over positive Support>=.7 of equal-weight channel cosine; missing channels0, no invented pyramid","lambda":0.2,"scope":"Original Hybrid-only Top50, same .05 weak signal floor"},
+ "calibration":{"reference_users_max":12,"support":"5 Train items by fixed ID hash; users selected by hash only","CDF":"Train-only pseudoSupport score empirical mid-CDF, RAW MF to avoid clipping ties, original Content; alpha .25/.75 unchanged","gate":"Train reference MF clip fraction>.01 OR MF/Content std ratio outside[.5,2]; finite nonzero references required","constant_fallback":"Original bounded component if fitted reference range<=1e-12"},
+ "design":"Three predeclared policies, no hyperparameter search. Diagnostic eligibility gates use only training/reference features, not Outer answer accuracy. Reused developer5fold selection bias explicitly acknowledged instead of expensive nested search",
+ "max_new_MF_fits":5,
+ "background":"Diagnose existing V32 fold models without fitting or changing them; evaluate ONLY the selected promising fixed new policy alongside that scope baseline, no selection across scopes",
+ "selection":"Mean positive-user fold NDCG then Recall then HitRate; strict improvement over baseline required, ties retain baseline. No claim of best-ever historical algorithm",
+ "artifact":"5-fold bank, default_fold1 fixed before results, no ensemble/all50 or305 refit",
+ "bootstrap_seed":12,"bootstrap_draws":20000,
+ "reserved25":"No rating decoding/evaluation or V24/V31 final-result reads"
+}

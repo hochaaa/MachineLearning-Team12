@@ -1,0 +1,19 @@
+{
+ "seed":12,"k":5,"support":5,"relevance":0.7,
+ "partition":"Original Train only. All eligible75 users: first25 SHA256 12:v224:role:user => final; rest50=>development; all other users train. Eligibility >=6total and>=5fixed479 items. All eval users excluded from developer fits.",
+ "support_order":"12:v224:support:user:item; first5 candidate IDs; remaining ALL observed items are answers, including outside479",
+ "MF_grid":[
+  {"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+  {"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.05,"seed":12},
+  {"factors":8,"epochs":160,"learning_rate":0.01,"regularization":0.03,"seed":12}
+ ],
+ "profiles":["rating","liked","centered"],
+ "rank_alphas":[0.25,0.5,0.75],
+ "extra_policy":"rating+adaptive alpha .25+.5*(1-known_support/5) using unclipped MF percentile. For secondary MF configs, skip combinations if pure MF developer NDCG lower than first MF; no extra hyperparameter search.",
+ "selection":"Highest development NDCG@5 among fixed baseline, existing V22/V23 variants and improved variants; ties keep baseline then earliest declared candidate. Freeze selection before final labels.",
+ "normalization":"Per-user ID-only candidate raw-score midrank percentiles; unclipped MF removes clipping ties. No label-derived scaling or posthoc calibration.",
+ "final_fit":"After selection, refit baseline and selected MF on training+development users, excluding ALL final users. Share fit if same MF settings. Maximum total MF fits5, Content fits2.",
+ "final":"Read sealed final support/answers only after selection+final fits. Evaluate fixed baseline/V22 common479/V23 noMMR and defaultMMR/selected exactly once. Never retune on final.",
+ "common_candidates":479,"expanded497_accuracy":"NOT_EVALUATED_NO_ELIGIBLE_COMPARABLE_NEW_ITEM_COHORT",
+ "uncertainty":"paired user bootstrap20000 seed12. Reused source population; one-time V24 heldout is user-disjoint within this run, not pristine external evidence."
+}

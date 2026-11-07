@@ -1,0 +1,19 @@
+{
+  "mf":{"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+  "signals":["max","top2"],
+  "lambdas":[0.05,0.10,0.20],
+  "modes":["full","top50"],
+  "positive_threshold":0.7,
+  "signal_floor":0.05,
+  "max_similarity":"Maximum cosine among valid Support items with rating>=.7",
+  "top2_similarity":"Mean of largest2 (rating * cosine) contributions among all valid Support items, zero pad if fewer than2; requires at least one valid positive Support",
+  "weak_fallback":"S missing or S<.05 -> exact original Hybrid H for that candidate; no valid positive Support -> H for whole user",
+  "blend":"(1-lambda)*H + lambda*S, only when signal passes fixed floor; no fitted normalization",
+  "top50":"Choose Top50 using H only, rerank strictly within those50; outside items cannot enter Top5",
+  "policies":"Baseline lambda0 plus2 signals x3 lambda x2 scopes; fixed before any new results, no PN or additional search",
+  "selection":"Mean fold positive-user NDCG then Recall then HitRate; strict improvement over Hybrid. Ties prefer smaller lambda, top50 then max, stable insertion last",
+  "baseline_expected_ndcg":0.040963057685131546,
+  "max_actual_data_MF_fits":5,
+  "final_artifact":"Reuse verified V29 all50 developer item-only MF/Content/popularity state, apply selected V30 policy; no extra fit or service deployment",
+  "scope":"Exact V26-29 developer50,5 folds40/10,Support5,candidates479,relevance.7. No reserved25 labels or V24 result reads; reused development CV, not independent final"
+}

@@ -1,0 +1,18 @@
+"""Predeclared V2-18 policy; never revise after viewing new-user answers/results."""
+POLICY=dict(seed=12,k=5,support=5,relevance=.7,min_new_accuracy_users=3,
+    candidate_sources='Original479 + exact identity/concentration matches from pinned Scento CC-BY-4.0 only',
+    denied_metadata='V2-17 manufacturer note/accord rows and research_vectors are not used for any scores',
+    unresolved='All12 V2-17 unresolved/review source IDs remain denied; zero-vector sources are held',
+    matching='Exact normalized original brand/name/concentration; no fuzzy, no concentration imputation',
+    named_absolu='A provider parfum may match original Absolu de Parfum only when provider name explicitly contains the full named variant',
+    new_features='Literal licensed flat notes only; no family/character/accord inference; unchanged frozen IDF',
+    old_features='Main experiment: original Frozen479 vectors byte-value unchanged. TrackA: independent historical fold vectors reconstructed with each stored fold IDF',
+    profile='sum(max(0, rating/10)*unit item vectors) followed by cosine; exactly5support; seen excluded; score-desc/ID-asc ties',
+    zero_profile='NO_USABLE_PROFILE; no arbitrary or popularity fallback',
+    model_A='Strict original candidate/vectors; new unknown supports unscorable. Optional A_shared_support_adapter explicitly separate coverage control',
+    model_B='479 old Notes+Accords vectors + new licensed Notes-only vectors; mixed representation disclosed',
+    track_A='Same historical Outer3 users/support5/answers/479 pool; original fold IDFs, no train/IDF fit and no new metadata',
+    track_B='Identity-only eligibility>=6 available unique ratings, fixed hash support5/remainder labels; no fit/tune; >=3users for point accuracy',
+    small_cohort='With<3users, support-only technical inference/exposure allowed; accuracy/positive labels/hits/bootstrap NOT_EVALUATED',
+    minimum_cohort_reason='Conservative engineering reporting choice for tiny exploratory sample, not a professor requirement or statistical sufficiency guarantee',
+    tuning=False,MF_fits=0,IDF_fits=0,service_changes=False)

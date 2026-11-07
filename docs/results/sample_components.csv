@@ -1,0 +1,6 @@
+rank,perfume_id,brand,name,content_cosine,mf_clipped,content_weighted,mf_weighted,hybrid
+1,https://www.fragrantica.com/perfume/parfums-de-marly/layton-39314.html,parfums-de-marly,layton,0.29517654325098186,0.92240297670229,0.07379413581274546,0.6918022325267175,0.7655963683394629
+2,https://www.fragrantica.com/perfume/dior/sauvage-elixir-68415.html,dior,sauvage-elixir,0.34615461301753114,0.8791722010874381,0.08653865325438279,0.6593791508155786,0.7459178040699614
+3,https://www.fragrantica.com/perfume/creed/original-vetiver-468.html,creed,original-vetiver,0.2902120914957987,0.873486919201782,0.07255302287394967,0.6551151894013365,0.7276682122752862
+4,https://www.fragrantica.com/perfume/creed/silver-mountain-water-472.html,creed,silver-mountain-water,0.17439767822883134,0.9034833259777656,0.043599419557207836,0.6776124944833242,0.721211914040532
+5,https://www.fragrantica.com/perfume/dior/pure-poison-214.html,dior,pure-poison,0.17510213809150413,0.9022785120157013,0.04377553452287603,0.676708884011776,0.7204844185346521

@@ -1,0 +1,17 @@
+{
+  "seed": 12,
+  "mf": {"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+  "profiles": ["rating_weighted","positive_negative_0.25","positive_negative_0.50"],
+  "alphas": [1.0,0.5,0.25],
+  "weighted": "w=2*r-1 on normalized Support ratings only",
+  "positive_negative": "mean unit vectors of Support r>=.7 minus beta*mean unit vectors of Support r<=.3; intermediate ignored; beta .25/.50",
+  "signed_scale": "clip(cosine,0,1); no fitted calibration, negative similarities receive zero",
+  "profile_fallback": "All Support ratings equal or zero signed vector -> original positive rating-weighted Content; unavailable Content -> original component/popularity fallback",
+  "pure_content": "Original Content.score, then popularity ONLY when missing; no MF fallback",
+  "selection": "Mean5 fold positive-user NDCG then Recall/HitRate; strict baseline improvement; ties prefer original, then fewer new parameters, alpha closer .25",
+  "comparisons": "baseline Hybrid .25, Pure MF, Pure Content, 3 new profiles x3 alphas; one cached score array per Support/profile; all combinations preregistered, no further search",
+  "recall_k": [5,10,20,50,100],
+  "baseline_expected_ndcg":0.040963057685131546,
+  "max_actual_data_MF_fits":6,
+  "scope":"Exact V26 developer50, 5x40/10, Support5, candidates479, relevance .7; reserved25 excluded, no V24 result reads; reused development CV not final"
+}

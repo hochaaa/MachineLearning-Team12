@@ -1,0 +1,16 @@
+{
+  "seed": 12,
+  "base_mf": {"factors": 4, "epochs": 160, "learning_rate": 0.01, "regularization": 0.01, "seed": 12},
+  "initial_bpr": {"factors": 4, "epochs": 160, "learning_rate": 0.01, "regularization": 0.01, "seed": 12},
+  "alphas": [0.0, 0.1, 0.25, 0.5],
+  "optional_gate": "Initial BPR best mean fold NDCG strictly exceeds baseline by 1e-12; only then one 8-factor run, all other settings unchanged",
+  "max_actual_data_MF_fits": 17,
+  "baseline_expected_ndcg": 0.040963057685131546,
+  "pair_policy": "All strict unequal observed rating pairs, equal pairs omitted, no unseen negatives, no gap weights",
+  "objective": "sum softplus(-p_u*(q_i-q_j)) + lambda*(sum P^2+sum Q^2); exact global L2 lazy scaling SGD",
+  "foldin": "Reuse pairwise_mf.fold_in: fixed Q, zero initialized Newton50/backtracking20, L2 .01, tolerance1e-8",
+  "normalization": "sigmoid((raw - mean known Support raw scores)/T); T=max(RMS of learned TRAIN pair gaps,1e-6); same monotonic scores for all alphas",
+  "fallback": "No usable pairwise user vector: complete original Hybrid .25. Unknown candidate factor: unchanged Content then popularity fallback",
+  "selection": "Mean positive-user fold NDCG, then Recall, then Hit Rate; strict improvement over baseline required; ties prefer alpha closer .25 then 4 factors",
+  "evaluation": "Exact V26 developer50 folds, Support5, candidate479, relevance .7; no reserved25 labels; not independent final evaluation"
+}
