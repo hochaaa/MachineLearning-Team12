@@ -95,10 +95,10 @@ Validation 적격 사용자 168명 중 긍정 정답이 있는 137명, Internal 
 
 ## 실행 방법
 
-Python 3.12, Node.js 20.20 또는 지원 Node.js 22.12 이상, npm과 Git이 필요합니다. 아래 명령은 최종 발표 기능을 반영한 `main` 브랜치 기준입니다.
+Python 3.12, Node.js 20.20 또는 지원 Node.js 22.12 이상, npm과 Git이 필요합니다. 아래 명령은 최종 발표 기능을 반영한 `final-submission-20261107` 브랜치 기준입니다.
 
 ```sh
-git clone --single-branch --branch main https://github.com/hochaaa/MachineLearning-Team12.git
+git clone --single-branch --branch final-submission-20261107 https://github.com/hochaaa/MachineLearning-Team12.git
 cd MachineLearning-Team12
 sh deployment/final_v1/run-macos.sh install
 sh deployment/final_v1/run-macos.sh check
