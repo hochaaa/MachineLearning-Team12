@@ -9,7 +9,7 @@
 Python3.12, Node20.20 또는 지원 Node22.12+, npm, Git이 필요하다. macOS ARM64를 실제 검증 대상으로 삼았으며 Windows는 **NOT TESTED**다.
 
 ```sh
-git -c core.autocrlf=false clone --single-branch --branch final-submission-20261107 https://github.com/hochaaa/MachineLearning-Team12.git
+git -c core.autocrlf=false clone --single-branch --branch main https://github.com/hochaaa/MachineLearning-Team12.git
 cd MachineLearning-Team12
 sh deployment/final_v1/run-macos.sh install
 sh deployment/final_v1/run-macos.sh check
@@ -28,7 +28,7 @@ start 한 번으로 다음 두 프로세스를 함께 시작한다.
 ## Windows PowerShell — 실제 OS 미검증
 
 ```powershell
-git -c core.autocrlf=false clone --single-branch --branch final-submission-20261107 https://github.com/hochaaa/MachineLearning-Team12.git
+git -c core.autocrlf=false clone --single-branch --branch main https://github.com/hochaaa/MachineLearning-Team12.git
 cd MachineLearning-Team12
 & .\deployment\final_v1\run-windows.ps1 install
 & .\deployment\final_v1\run-windows.ps1 check
