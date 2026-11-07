@@ -1,0 +1,2 @@
+@import url('/base-style.css');
+select{width:100%;max-width:100%;min-width:0}input,button{max-width:100%;box-sizing:border-box}main,.panel{min-width:0}p,h3{overflow-wrap:anywhere}@media(max-width:600px){header{flex-wrap:wrap;gap:8px}.tag{white-space:normal}}

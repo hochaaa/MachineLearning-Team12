@@ -83,3 +83,7 @@ htmlcov/
 .local/
 .vscode/
 .idea/
+
+# Final presentation and aggregate evidence, individually reviewed for publication.
+!docs/presentation/SCENT_MATCH_final.pptx
+!docs/presentation/SCENT_MATCH_final.docx

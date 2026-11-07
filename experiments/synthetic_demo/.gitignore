@@ -1,6 +1,0 @@
-# Demo-only local evidence and environments; root ignore policy is unchanged.
-evidence/
-.venv/
-node_modules/
-dist/
-__pycache__/

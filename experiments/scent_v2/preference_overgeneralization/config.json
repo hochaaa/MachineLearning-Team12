@@ -1,0 +1,14 @@
+{
+ "positive":0.7,"negative":0.3,"neutral":".3<r<.7; not negative simply because below .7",
+ "scope":"V33 saved40-train/10-eval folds,50 developers,Support5,candidates479; no V34 prepared305-user model, no background model, no fitting/tuning/selection",
+ "compound_proxy":"At least2 positive products with nonempty and mutually non-nested actual MainAccord sets. Product-level proxy, not isolated family preference ground truth",
+ "pair_strict":"At least1 same-product mutual positive AND a different SAME rated product positive for one and negative for the other",
+ "pair_evaluable":"At least2 common rated products AND at least1 mutual-positive product; otherwise INSUFFICIENT_EVIDENCE for strict partial preference hypothesis",
+ "feature_overlap":"Top/Middle/Base phrases and MainAccords stay separate; features of whole liked/disliked products do not identify isolated note preference",
+ "suspected_conflict":"Negative Support max structural cosine > positive Support max structural cosine +1e-12; both anchors required, otherwise N/A",
+ "component_diagnostics":"MF/content aligned when their available-score component-only rank is Top5 and other component rank is not. Numeric contribution shares also recorded. Descriptive, not a new evaluated recommender or causal attribution",
+ "structured_promotion":"Structured final rank better than original H rank, especially original rank6..50 entering Top5",
+ "negative_rates":"Confirmed negatives / observed-rated Top5 (conditional); also /all250 slots as known-negative lower bound; unknown ratings never negatives",
+ "hypothesis":"Require direct same-product partial-preference witnesses and negative heldout Top5 linkage; MF transfer causality not identified by association",
+ "privacy":"U01..U50 temporary aliases; no original user IDs, user hash mapping or full original rating rows exported"
+}

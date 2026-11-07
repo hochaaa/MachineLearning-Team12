@@ -9,7 +9,7 @@
 Python3.12, Node20.20 또는 지원 Node22.12+, npm, Git이 필요하다. macOS ARM64를 실제 검증 대상으로 삼았으며 Windows는 **NOT TESTED**다.
 
 ```sh
-git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git
+git -c core.autocrlf=false clone --single-branch --branch main https://github.com/hochaaa/MachineLearning-Team12.git
 cd MachineLearning-Team12
 sh deployment/final_v1/run-macos.sh install
 sh deployment/final_v1/run-macos.sh check
@@ -28,7 +28,7 @@ start 한 번으로 다음 두 프로세스를 함께 시작한다.
 ## Windows PowerShell — 실제 OS 미검증
 
 ```powershell
-git -c core.autocrlf=false clone --single-branch --branch development-v2 https://github.com/hochaaa/MachineLearning-Team12.git
+git -c core.autocrlf=false clone --single-branch --branch main https://github.com/hochaaa/MachineLearning-Team12.git
 cd MachineLearning-Team12
 & .\deployment\final_v1\run-windows.ps1 install
 & .\deployment\final_v1\run-windows.ps1 check
@@ -58,7 +58,7 @@ py -3.12 -B deployment/final_v1/manage.py start
 
 ## 기능 확인과 테스트
 
-브라우저에서 Tom Ford를 검색하고 Bitter Peach/Black Orchid/Ébène Fumé를 선택해9/7/2를 입력하는 방식으로 시연할 수 있다. 실제 선택은 현재 검색 결과의 ID를 사용한다. 입력상품은 추천에서 제외되고 네 필터 none/woody/floral/rose는 기존과 동일하다. UI/API는1개 이상,3개 권장이고 API는최대50개다. score는 확률이 아니다.
+브라우저에서 Tom Ford를 검색하고 Bitter Peach/Black Orchid/Ébène Fumé를 선택해9/7/2를 입력하는 방식으로 시연할 수 있다. 실제 선택은 현재 검색 결과의 ID를 사용한다. 입력상품은 추천에서 제외되고 조건은 none/woody/floral/rose/citrus/amber/vanilla다. UI/API는1개 이상,3개 권장이고 API는최대50개다. score는 확률이 아니다.
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3.12 -B -m unittest discover -s deployment/final_v1/tests -v
@@ -73,4 +73,4 @@ Windows의 Python 실행파일은 `deployment/final_v1/.local/venv/Scripts/pytho
 
 기존 모델·벡터·알고리즘·alpha·candidate·standalone_v1·React 소스를 변경하지 않았다. 새로운 MF fit/튜닝/Validation·Test 평가를 실행하지 않는다. 소프트웨어 실행 차단 제거와 법적 허가·제3자 공유는 별개이며 어떠한 VERIFIED 권한 기록도 만들지 않는다. 권한 조사는 별도 보고서를 참조한다.
 
-설치에는 패키지 registry 네트워크가 필요하다. 실행은 loopback 전용이며 외부호스팅 구성은 아니다. 포트8004/5177 충돌 시 종료하므로 타 프로세스 소유자를 확인한다. Windows 실제 실행, 발표장 장비·오프라인·다중 브라우저 검증은 별도다. 정리 가이드와 함수 설명은 같은 디렉터리의 문서를 따른다.
+설치에는 패키지 registry 네트워크가 필요하다. 실행은 loopback 전용이며 외부호스팅 구성은 아니다. 포트8004/5177 충돌 시 종료하므로 타 프로세스 소유자를 확인한다. Windows 실제 실행, 발표장 장비·오프라인·다중 브라우저 검증은 별도다. 함수 설명은 같은 디렉터리의 문서를 따른다.

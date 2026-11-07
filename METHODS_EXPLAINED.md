@@ -75,3 +75,7 @@ scripts/improve.py는16개 MF 설정×threshold3개를 검사하고 순수MF에�
 aggregate_with_intervals(predictions,answers,k,relevance,seed)는 고정 user별 결과를2000번 복원추출해 mean NDCG의2.5/97.5 percentile을 기술적 구간으로 저장한다. np.random.default_rng(seed).integers(0,n,size=(2000,n))가 bootstrap user index다. 작은 외부 표본·선택 편향·매칭 불확실성을 해결하거나 유의한 모델차를 증명하는 검사는 아니다. reports/MODEL_IMPROVEMENT.md는 이 한계를 명시한다.
 
 scripts/demo_frozen.py의 --support/required/forbidden/preferred/k는 이전 CLI와 같은 입력 의미다. 동결된479개 candidate에서만 추천하며 fit하지 않는다. scripts/report_improvements.py의 records(path)는 저장된 CSV를 읽고 md_table(headers,rows)는 Markdown 표, main()은 실측 CSV만으로 결과표·ReportLab 그래프를 만든다. scripts/render_figures.mjs의 선택 positional directory는 해당 SVG 디렉터리를 PNG로 변환한다. 보고서 생성과 그림 렌더는 모델 재선택을 하지 않는다.
+
+## 검색 전 무작위 향수 탐색 (2026-10-29)
+
+`web.backend.discovery.discover(current, limit=10, rng=None)`는 기존 로드된 서비스 current의 후보 ID·카탈로그 표시 메타데이터만 읽는다. limit은 최대 표시 수이며 API에서는10으로 고정한다. rng는 재현 가능한 단위 테스트용 난수 객체이고 생략하면 표준 `random.SystemRandom`으로 버킷/상품 순서를 섞는다. `defaultdict(list)`로 브랜드 버킷을 만들고 브랜드별 한 개씩 순회하면서 새 표시 어코드를 우선한다. 이는 모델 점수·주평가 지표와 무관한 비개인화 탐색이며 균등 추출은 아니다. `add_discovery_route(app)`는 검증된 FastAPI app에 GET `/api/perfumes/discover`를 추가하고 응답을 no-store로 지정한다. 원래 추천 라우트나 동결된 소스를 바꾸지 않는다. 테스트의 rng seed는 검사 재현용이며 모델 seed가 아니다. 외부 코드를 차용하지 않았다.

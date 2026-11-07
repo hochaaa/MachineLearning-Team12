@@ -1,0 +1,14 @@
+# V2-24 concise API/parameters
+
+- `split(rows,candidates)`: original normalized Train triples only; identity-only SHA256 splits users/support. It returns train,developer,final; driver seals final then deletes in-memory final rows before search. `validate_train(rows,excluded_users)` rejects any evaluation user.
+- `components(support,candidates,content,mf,pop)`: five normalized support pairs; same ridge n*lambda, raw/clipped MF, original Content and baseline fallback. No answers argument.
+- `profile(support,pool,content,kind)`: rating unchanged; liked uses max(0,r−.6); centered sums (r−.5)*unititem then maps signed cosine to[0,1]. Zero profile falls back to rating profile. Vocabulary/IDF fixed after train fit.
+- `percent_array(values,pool)`: per-user finite midrank percentile, equal raw scores share rank, NaNs stay missing. Candidate distribution is inference input, not ground-truth calibration. Raw MF avoids clipped-score ties but proved no improvement here.
+- `score_variant(spec,support,candidates,content,mf,pop,cache)`: fixed spec selects baseline/V22/V23/new rank fusion. Alpha=.25/.5/.75 or .25+.5*(1−known_support/5). No new product factors. `evaluate(...)` computes predictions before answer metrics. `paired(a,b,seed)` bootstraps paired positive-answer users20000 times, percentile95%; no confirmatory claim.
+- `save_model(path,content,mf,pop,candidates,spec,mf_config)`/`load_model(path)`: NumPy compressed arrays, allow_pickle=False, reconstruct scoring objects without P/user IDs. Metadata records selected policy; no online service switch.
+- `open_final()` requires exclusive frozen selection+final fit markers and creates a one-time final-access marker before reading. Main fit wrapper counts all MF fits and caps5; actual4. Audit hook denies old answer/model reads, external network and writes outside new output.
+- `write(name,value)` creates new finite JSON only. `predict --model/--support` loads the saved model and five raw0..10 inputs, not answer labels. Test functions use synthetic fixtures or saved aggregates, no MF fits or final-label replay.
+
+NumPy supplies SGD vectors/solve/clip and percentile bootstrap; hashlib supplies identity-only deterministic ordering/byte fingerprints; json/csv/pathlib strict local output; unittest.mock intercepts fit calls; sys audit hook is a process-local guard, not OS isolation. No unfamiliar opaque recommender package added.
+
+Local reuse: `src/perfume/models.py` original Content/MF/Baseline/hybrid; `experiments/scent_v2/recommend.py` fold_in/rank; V22 percentiles; V23 preferences/rerank; V2-18 evaluation user_metrics/summarize. No third-party algorithm code copied, no new source acquisition. Algorithms and params are already explained in those project modules. Professor required a recommender/evaluation, not a numeric accuracy target; all search/selection thresholds here are engineering choices.

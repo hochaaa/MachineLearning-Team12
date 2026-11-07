@@ -1,0 +1,14 @@
+{
+ "version":"v226-1","seed":12,"folds":5,"support":5,"k":5,"relevance":0.7,
+ "training_scope":"ONLY the50 V25 developer users. Per fold40train/10eval. Original255 background users and reserved25 final users are unused; their ratings are not decoded.",
+ "user_assignment":"Same V24-role namespace to identify50 developers; then sorted SHA25612:v226:fold:user, round-robin5folds. Original12:v224:support:user:item Support/Held-out kept.",
+ "mf":{"factors":4,"epochs":160,"learning_rate":0.01,"regularization":0.01,"seed":12},
+ "baselines":[{"name":"hybrid25","alpha":0.25,"ridge_scale":1.0,"center":false},{"name":"mf0","alpha":0.0,"ridge_scale":1.0,"center":false},{"name":"v25_alpha05","alpha":0.05,"ridge_scale":1.0,"center":false}],
+ "improvements":[{"name":"ridge_low","alpha":0.05,"ridge_scale":0.5,"center":false},{"name":"ridge_high","alpha":0.05,"ridge_scale":2.0,"center":false},{"name":"support_centered","alpha":0.05,"ridge_scale":1.0,"center":true}],
+ "conditional":"Only if mean centered NDCG >= V25 mean, also compare centered ridge scales0.5 and2.0 using cached same5 models; no extra MF fits.",
+ "center":"mu=mean ALL5 support normalized ratings; solve residuals(y_known-mu); prediction=mu+Qp, then original clip[0,1]. No known MF support => original missing-component fallback, not fabricated factors.",
+ "selection":"Highest arithmetic mean of5 fold positive-user NDCGs. Ties prefer V25, then original Hybrid/PureMF, then simpler lambda near1 and no centering. Report fold spread/wins; no final validation claim.",
+ "fit_budget":6,"factor8":"NOT_REPEATED; V25 factor8 was weak; this stage isolates fold-in without another5 MF fits.",
+ "final_artifact":"After developer-CV selection, one fit on all50 developers only. No accuracy evaluation of this all50 fit on those same users.",
+ "independent_final":"NOT_EVALUATED; no V24 output/result/final data access."
+}

@@ -68,10 +68,15 @@ class SetupTests(unittest.TestCase):
             load.assert_not_called()
     def test_exact_original_factory_delegation(self):
         sentinel=object();factory=Mock(return_value=sentinel);module=Mock(create_app=factory)
-        with patch.object(app,'inspect_assets'),patch.object(app.importlib,'import_module',return_value=module) as load,patch.object(app,'assets_path',return_value=self.assets):
+        # Load extensions before mocking importlib so third-party lazy imports remain real.
+        from web.backend import discovery
+        from deployment.final_v1 import scent_options
+        with patch.object(app,'inspect_assets'),patch.object(app.importlib,'import_module',return_value=module) as load,patch.object(app,'assets_path',return_value=self.assets),patch.object(scent_options,'extend_scent_options',side_effect=lambda value:value) as scents,patch.object(discovery,'add_discovery_route',side_effect=lambda value:value) as discover:
             self.assertIs(app.create_app(),sentinel)
         load.assert_called_once_with('deployment.standalone_v1.app')
         factory.assert_called_once_with(directory=self.assets,expected_manifest_sha256=config.MANIFEST_PIN)
+        scents.assert_called_once_with(sentinel)
+        discover.assert_called_once_with(sentinel)
     def test_command_wiring_and_no_demo_fallback(self):
         backend,frontend,env=manage.plan(self.assets)
         self.assertIn('deployment.final_v1.app:create_app',backend)

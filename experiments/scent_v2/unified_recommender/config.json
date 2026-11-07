@@ -1,0 +1,14 @@
+{
+  "version": "v222-1",
+  "modes": ["FROZEN_479_HYBRID", "EXPANDED_497_CONTENT", "UNIFIED_497_HYBRID"],
+  "default_mode": "FROZEN_479_HYBRID",
+  "unified_rule": "Empirical midrank percentile: old=(P_content497+P_hybrid479)/2; new=P_content497. If no usable original MF support, use P_content497 for all. No answer-based calibration or tuning.",
+  "percentile": "(N-1-average_zero_based_desc_rank)/(N-1); all equal =>0.5; N=1 =>0.5. Ties share percentile, final ID ascending.",
+  "hybrid_alpha": 0.25,
+  "rank_fusion_weight": 0.5,
+  "new_item_MF": "ABSENT_NOT_FABRICATED",
+  "exclude": "All saved assessed product IDs; Support5 are always excluded. This is a live recommendation flow, not unchanged offline holdout evaluation.",
+  "catalog_count": 497,
+  "fit_calls": 0,
+  "accuracy_improvement": "NOT_EVALUATED"
+}
