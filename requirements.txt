@@ -1,2 +1,3 @@
-# Core models and CLI. Audit uses standard library only.
-numpy==2.3.5
+# Frozen models, CLI and the root Vercel Python function.
+# Match pyproject.toml even when a builder prefers requirements.txt.
+-r web/backend/requirements-lock.txt

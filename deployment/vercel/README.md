@@ -1,5 +1,16 @@
 # SCENT MATCH on Vercel
 
+Public production URL: **https://scent-match-team12.vercel.app**.
+The longer generated deployment/team URLs retain Vercel Authentication;
+share the short production URL above with visitors.
+
+The initial release was uploaded from the verified Git commit because this
+Vercel account has no GitHub integration installed. It does **not** auto-deploy
+Git pushes. The source changes are available in PR #6 on `codex/vercel-deployment`.
+After that PR is merged, connect this repository to the existing
+`scent-match-team12` Vercel project with Root Directory left at the repository root
+to enable Git deployments. Until then, deploy the current checkout explicitly.
+
 Use the **repository root** as the Vercel Root Directory. The root `vercel.json`
 builds the existing React/Vite frontend to the CDN and routes `/api/*` to a single
 Python 3.12 FastAPI function (`api/index.py`). The framework override is `null` so
@@ -9,7 +20,8 @@ containers, external model host, database, credentials or paid add-ons are neede
 Leave `VITE_API_BASE_URL` **unset**: the UI uses the same HTTPS origin for `/api`.
 The existing frontend-only `web/frontend/vercel.json` is not used by this project.
 Python dependencies in `pyproject.toml` copy the exact existing runtime lock,
-including numpy 2.3.5. `.python-version` also selects Python 3.12.
+including numpy 2.3.5. Root `requirements.txt` delegates to the same lock so either
+dependency-file selection yields the same runtime. `.python-version` selects 3.12.
 
 ## Frozen predictions and assets
 
