@@ -83,6 +83,7 @@ htmlcov/
 .local/
 .vscode/
 .idea/
+.vercel/
 
 # Final presentation and aggregate evidence, individually reviewed for publication.
 !docs/presentation/SCENT_MATCH_final.pptx

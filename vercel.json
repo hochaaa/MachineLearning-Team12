@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --prefix web/frontend",
+  "buildCommand": "npm --prefix web/frontend run check:production && npm --prefix web/frontend run build",
+  "outputDirectory": "web/frontend/dist",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 30,
+      "includeFiles": "{outputs/step12_runtime/assets/**,src/perfume/**,web/backend/**,deployment/standalone_v1/**,deployment/final_v1/config.py,deployment/final_v1/scent_options.py}",
+      "excludeFiles": "{.venv/**,**/node_modules/**,**/__pycache__/**,experiments/**,docs/**,tests/**,demos/**,Term-project-datasets/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index.py" },
+    { "source": "/((?!api(?:/|$)).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
+  ]
+}
