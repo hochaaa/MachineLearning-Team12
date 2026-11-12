@@ -1,3 +1,5 @@
+[https://scent-match-team12.vercel.app](https://scent-match-team12.vercel.app)
+
 # SCENT MATCH · Team 12
 
 향수 선택과 0–10점 취향 입력으로 실제 Frozen V1의 Top 5를 추천하는 머신러닝 프로젝트다. FastAPI와 React/TypeScript/Vite를 사용하며, 콘텐츠 TF-IDF/cosine과 SGD Matrix Factorization의 점수를 **0.25 / 0.75**로 결합한다. 신규 사용자는 고정 item factor에 Ridge fold-in을 적용한다. 479개 후보에서 입력 향수를 제외하고 Woody / Floral / Rose 조건을 적용한다. 점수는 확률이 아니다.
