@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { validateApiBase } from './check-production.mjs'
 import { readFileSync } from 'node:fs'
-test('missing API origin is rejected',()=>assert.throws(()=>validateApiBase('')))
+test('empty API origin uses the same-origin API',()=>assert.equal(validateApiBase(''),''))
 test('HTTP and local/placeholder origins are rejected',()=>{
   for (const value of ['http://api.example.net','https://localhost','https://127.0.0.1','https://host.invalid','https://api.example.com','https://YOUR_BACKEND_DOMAIN','https://192.168.1.1','https://[::1]','https://2130706433','https://backend.internal']) assert.throws(()=>validateApiBase(value))
 })
